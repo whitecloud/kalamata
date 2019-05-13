@@ -1,0 +1,47 @@
+.left-nav-child-item,
+.left-nav-item {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.left-nav-item {
+  background: #375e5e;
+  color: #95a597;
+  padding: 8px;
+  border-bottom: 1px solid #2c4948;
+
+  ion-icon.title-icon {
+    margin-right: 12px;
+    color: #fff;
+  }
+
+  ion-icon[name="ios-arrow-down"] {
+    transition: 300ms;
+
+    &.expanded {
+      -ms-transform: rotateX(180deg);
+      -webkit-transform: rotateX(180deg);
+      transform: rotateX(180deg);
+    }
+  }
+}
+
+.left-nav-child-item {
+  background: #2c4948;
+  color: #fff;
+  padding-left: 12px;
+}
+
+.children-container {
+  height: 0;
+  display: none;
+  transition: 300ms;
+
+  &.expanded {
+    height: auto;
+    display: initial;
+  }
+}

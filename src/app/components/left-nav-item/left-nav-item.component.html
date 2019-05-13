@@ -1,0 +1,13 @@
+<div class="left-nav-item" *ngIf="item" (click)="itemClicked()">
+  <div>
+    <ion-icon class="title-icon" [name]="item.icon" *ngIf="item.icon"></ion-icon>
+    {{ item.title }}
+  </div>
+  <ion-icon name="ios-arrow-down" *ngIf="item.children" [ngClass]="{'expanded': item.expanded}"></ion-icon>
+</div>
+
+<div class="children-container" *ngIf="item.children" [ngClass]="{'expanded': item.expanded}">
+  <div class="left-nav-child-item" *ngFor="let child of item.children" (click)="childClicked(child)">
+    {{ child.title }}
+  </div>
+</div>
