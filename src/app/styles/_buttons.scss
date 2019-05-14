@@ -1,0 +1,64 @@
+@import './colors';
+
+$button-border-radius: 4px;
+
+.relias-button {  
+  border-radius: $button-border-radius;
+  padding: 6px 14px;
+  font-size: 14px; 
+  letter-spacing: 0.17px; 
+  text-align: center; 
+  font-family: Helvetica; 
+  font-weight: 700;
+
+  &:focus {
+    outline: none;
+  }
+
+  // different button styles
+  &.button-primary {
+    background: $accent-primary;
+    border: 2px solid $accent-primary;
+    color: $white-text;
+  }
+  &.button-secondary {
+    background: rgba(255,255,255,0.75);
+    border: 2px solid $accent-primary;
+    color: $accent-primary;
+  }
+  &.button-tertiary {
+    background: rgba(255,255,255,0.75);
+    border: 1px solid $accent-tertiary;
+    color: $black-text;
+    padding: 7px 15px;
+  }
+  &.button-filter {
+    background: rgba(255,255,255,0.75);
+    border: 2px solid $accent-primary;
+    color: $accent-primary;
+    padding: 6px 28px 6px 10px;
+    border-width: 1px;
+    font-weight: 400;
+    letter-spacing: -0.15px;
+    position: relative;
+    &.fixed, &.read-only { 
+      padding-right: 10px; 
+    }
+    &.read-only { 
+      border-color: transparent;
+      cursor: text;
+    }
+    img {
+      position: absolute;
+      top: 0;
+      right: 2px;
+    }
+  }
+
+  // different button sizes
+  &.button-large {
+    font-size: 18px;
+    letter-spacing: -0.19px;
+    padding: 9px 15px;
+  }
+}

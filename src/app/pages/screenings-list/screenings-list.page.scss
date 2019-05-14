@@ -1,0 +1,21 @@
+@import "../../styles/colors";
+
+.page-content {
+  background: $accent-primary;
+  height: 100%;
+
+  .content-card {
+    background: #fff;
+
+    .title-container {
+      border-bottom: 1px solid #7f7f7f;
+  
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+
+  }
+}

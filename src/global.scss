@@ -10,6 +10,9 @@
 @import '~@ionic/angular/css/text-transformation.css';
 @import '~@ionic/angular/css/flex-utils.css';
 
+// import the shared style guide
+@import './app/styles/style-guide.scss';
+
 ion-app {
   top: 65px !important;
 }
@@ -17,4 +20,11 @@ ion-app {
 .split-pane-visible > .split-pane-side {
   min-width: 260px !important;
   max-width: 260px !important;
+  border: none !important;
+}
+
+//// OVERRIDES ////
+
+*[padding] {
+  padding: 10px;
 }

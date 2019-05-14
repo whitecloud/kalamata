@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { LeftNavItemComponent } from './left-nav-item/left-nav-item.component';
 import { IonicModule } from '@ionic/angular';
 import { TopNavComponent } from './top-nav/top-nav.component';
+import { BackButtonComponent } from './back-button/back-button.component';
 
 @NgModule({
   declarations: [
     LeftNavItemComponent,
-    TopNavComponent
+    TopNavComponent,
+    BackButtonComponent
   ],
   imports: [
     IonicModule,
@@ -15,7 +17,8 @@ import { TopNavComponent } from './top-nav/top-nav.component';
   ],
   exports: [
     LeftNavItemComponent,
-    TopNavComponent
+    TopNavComponent,
+    BackButtonComponent
   ]
 })
 export class ComponentsModule { }
