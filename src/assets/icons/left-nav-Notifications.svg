@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/left-nav-Notifications</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icon/left-nav-Notifications" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.8">
+        <path d="M19.2375,12.7458333 C19.2375,8.67916667 17.05,7.29583333 15.0041667,6.9875 C15.0041667,6.96666667 15.0083333,6.94583333 15.0083333,6.92083333 C15.0083333,6.40833333 14.5541667,6 14,6 C13.4458333,6 13.0083333,6.40833333 13.0083333,6.92083333 C13.0083333,6.94583333 13.0083333,6.96666667 13.0125,6.9875 C10.9625,7.3 8.7625,8.6875 8.7625,12.7541667 C8.7625,17.4958333 7.58333333,18.0041667 6,19.3375 L22,19.3375 C20.425,18 19.2375,17.4875 19.2375,12.7458333 Z" id="Shape" fill="#FFFFFF"></path>
+        <path d="M14.0083333,22 C15.125,22 16.0416667,21.1708333 16.1625,20.2083333 L11.8541667,20.2083333 C11.9708333,21.1708333 12.8916667,22 14.0083333,22 Z" id="Shape" fill="#FFFFFF"></path>
+    </g>
+</svg>

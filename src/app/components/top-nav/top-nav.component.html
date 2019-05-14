@@ -1,0 +1,24 @@
+<div id="top-nav" [ngStyle]="{'border-bottom-color': topNav.navColor}">
+  <div class="left-container">
+
+    <div class="logo-container">
+      <img [src]="topNav.logo" *ngIf="topNav.logo">
+    </div>
+
+    <div class="tabs-container" *ngIf="topNav.tabs && topNav.tabs.length > 1">
+      <div class="top-nav-tab" *ngFor="let tab of topNav.tabs" [ngClass]="{'active': tab.active}" (click)="tabClick(tab)">
+        <span class="tab-text" [ngStyle]="{'color': tab.active ? topNav.navColor : '#6f6f6f'}">{{ tab.name }}</span>
+        <span class="tab-inner" [ngStyle]="{'background-color': tab.active ? topNav.navColor : '#fff'}"></span>
+      </div>
+    </div>
+
+  </div>
+  <div class="right-container">
+
+    <!--Figure out actual icons and behavior in WCA-4570-->
+    <!--<img class="person-icon" src="https://image.flaticon.com/icons/png/128/181/181549.png">-->
+    <!--<img class="chevron-down-icon" src="https://image.flaticon.com/icons/svg/60/60781.svg">-->
+
+  </div>
+</div>
+  
