@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Icons } from 'src/app/components/icon/icons.enum';
 
 @Component({
   selector: 'app-screenings-list',
@@ -8,6 +9,7 @@ import { ModalController } from '@ionic/angular';
 })
 export class ScreeningsListPage implements OnInit {
 
+  Icons = Icons;
   text = 'Add Screening';
 
   constructor(

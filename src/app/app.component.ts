@@ -29,6 +29,7 @@ export class AppComponent {
         {
           title: 'Members',
           icon: Icons.leftNavPeople,
+          expanded: true,
           children: [
             {
               title: 'Demographics'

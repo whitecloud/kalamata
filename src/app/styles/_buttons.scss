@@ -36,11 +36,12 @@ $button-border-radius: 4px;
     background: rgba(255,255,255,0.75);
     border: 2px solid $accent-primary;
     color: $accent-primary;
-    padding: 6px 28px 6px 10px;
+    padding: 7px 28px 7px 10px;
     border-width: 1px;
     font-weight: 400;
     letter-spacing: -0.15px;
     position: relative;
+
     &.fixed, &.read-only { 
       padding-right: 10px; 
     }
