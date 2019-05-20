@@ -1,13 +1,15 @@
-<div class="left-nav-item" *ngIf="item" (click)="itemClicked()">
-  <div>
-    <ion-icon class="title-icon" [name]="item.icon" *ngIf="item.icon"></ion-icon>
+<div class="left-nav-item nav-level-{{level}}" *ngIf="item" (click)="itemClicked()">
+  <div class="title-container">
+    <relias-icon class="title-icon" [name]="item.icon" *ngIf="item.icon"></relias-icon>
     {{ item.title }}
   </div>
-  <ion-icon name="ios-arrow-down" *ngIf="item.children" [ngClass]="{'expanded': item.expanded}"></ion-icon>
+  <relias-icon class="dropdown" [name]="Icons.leftNavExpand" *ngIf="item.children" [ngClass]="{'expanded': item.expanded}"></relias-icon>
 </div>
 
 <div class="children-container" *ngIf="item.children" [ngClass]="{'expanded': item.expanded}">
-  <div class="left-nav-child-item" *ngFor="let child of item.children" (click)="childClicked(child)">
-    {{ child.title }}
-  </div>
+  <relias-left-nav-item 
+    [item]="child"
+    [level]="nextLevel"
+    *ngFor="let child of item.children">
+  </relias-left-nav-item>
 </div>

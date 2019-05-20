@@ -1,24 +1,32 @@
-.left-nav-child-item,
+@import '../../styles/colors';
+
 .left-nav-item {
-  height: 44px;
+  min-height: 45px;
+  max-height: 57px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: $nav-background;
+  color: $nav-text;
+  padding: 8px 6px;
+  font-size: 14px; 
+  letter-spacing: 0.17px; 
+  font-family: Arial; 
+  font-weight: 400;
   cursor: pointer;
-}
 
-.left-nav-item {
-  background: #375e5e;
-  color: #95a597;
-  padding: 8px;
-  border-bottom: 1px solid #2c4948;
-
-  ion-icon.title-icon {
-    margin-right: 12px;
-    color: #fff;
+  .title-container {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
   }
 
-  ion-icon[name="ios-arrow-down"] {
+  relias-icon.title-icon {
+    margin-right: 4px;
+    height: 27px;
+  }
+
+  relias-icon.dropdown {
     transition: 300ms;
 
     &.expanded {
@@ -27,18 +35,37 @@
       transform: rotateX(180deg);
     }
   }
-}
 
-.left-nav-child-item {
-  background: #2c4948;
-  color: #fff;
-  padding-left: 12px;
+  &.nav-level-0 {
+    position: relative;
+    cursor: initial;
+    
+    .title-container {
+      position: absolute;
+      text-transform: uppercase;
+      bottom: 5px;
+      left: 11px;
+      font-size: 11px;
+      letter-spacing: 0.13px; 
+      font-family: Arial; 
+      font-weight: 700; 
+    }
+
+    relias-icon.dropdown {
+      display: none;
+    }
+  }
+
+  &.nav-level-2,
+  &.nav-level-3 {
+    padding-left: 13px;
+    background: $nav-darker;
+  }
 }
 
 .children-container {
   height: 0;
   display: none;
-  transition: 300ms;
 
   &.expanded {
     height: auto;

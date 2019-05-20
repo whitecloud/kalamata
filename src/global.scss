@@ -13,14 +13,30 @@
 // import the shared style guide
 @import './app/styles/style-guide.scss';
 
+// since we have the top nav, 
+// bring the rest of the app down 65px
 ion-app {
   top: 65px !important;
 }
 
+// set background and width of the left nav
+ion-menu.left-nav-menu ion-content {
+  --background: #3F6969;
+}
 .split-pane-visible > .split-pane-side {
-  min-width: 260px !important;
-  max-width: 260px !important;
+  min-width: 200px !important;
+  max-width: 200px !important;
   border: none !important;
+}
+
+// add the green border around the page
+.page-content {
+  background: $accent-primary;
+  height: 100%;
+
+  .content-card {
+    background: #fff;
+  }
 }
 
 //// OVERRIDES ////

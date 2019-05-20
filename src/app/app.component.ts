@@ -3,102 +3,109 @@ import { Component } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Icons } from './components/icon/icons.enum';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
-  public sideNav = [
+  public sideNav: any = [
     {
-      title: 'Dashboard',
-      icon: 'md-speedometer',
-      expanded: true,
+      title: 'Solutions',
       children: [
         {
-          title: 'Population Dashboard'
+          title: 'Dashboard',
+          icon: Icons.leftNavDashboard,
+          children: [
+            {
+              title: 'Population Dashboard'
+            },
+            {
+              title: 'Caseload Dashboard'
+            }
+          ]
         },
         {
-          title: 'Caseload Dashboard'
+          title: 'Members',
+          icon: Icons.leftNavPeople,
+          children: [
+            {
+              title: 'Demographics'
+            },
+            {
+              title: 'Registries'
+            },
+            {
+              title: 'Member List'
+            },
+            {
+              title: 'Metabolic Screenings',
+              route: 'screenings-list'
+            }
+          ]
+        },
+        {
+          title: 'Risk',
+          icon: Icons.leftNavRisk,
+          children: [
+            {
+              title: 'HCC Score Comparison'
+            },
+            {
+              title: 'High Risk Members'
+            }
+          ]
+        },
+        {
+          title: 'Prescription',
+          icon: Icons.leftNavDrug,
+          children: [
+            {
+              title: 'Prescription Performance'
+            },
+            {
+              title: 'Members with 10+ Medications'
+            }
+          ]
+        },
+        {
+          title: 'Performance',
+          icon: Icons.leftNavFinancial,
+          children: [
+            {
+              title: 'Utilizartion'
+            },
+            {
+              title: 'YTD Financial'
+            },
+            {
+              title: 'Care Management'
+            },
+            {
+              title: 'Metrics'
+            }
+          ]
+        },
+        {
+          title: 'Provider List',
+          icon: Icons.leftNavProvider
         }
       ]
     },
     {
-      title: 'Members',
-      icon: 'md-people',
-      expanded: true,
+      title: 'Help',
       children: [
         {
-          title: 'Demographics'
+          title: 'Quick Start',
+          icon: Icons.leftNavConnect
         },
         {
-          title: 'Registries'
-        },
-        {
-          title: 'Member List'
+          title: 'User Guide',
+          icon: Icons.leftNavConnect,
+          href: 'https://reporting.analytics.relias.com/ReportServer?/Kalamata/DEMO_Kalamata/Reports/Relias%20User%20Guide.pdf'
         }
       ]
-    },
-    {
-      title: 'Risk',
-      icon: 'ios-warning',
-      expanded: true,
-      children: [
-        {
-          title: 'HCC Score Comparison'
-        },
-        {
-          title: 'High Risk Members'
-        }
-      ]
-    },
-    {
-      title: 'Prescription',
-      icon: 'ios-medkit',
-      expanded: true,
-      children: [
-        {
-          title: 'Prescription Performance'
-        },
-        {
-          title: 'Members with 10+ Medications'
-        }
-      ]
-    },
-    {
-      title: 'Performance',
-      icon: 'md-trending-up',
-      expanded: true,
-      children: [
-        {
-          title: 'Utilizartion'
-        },
-        {
-          title: 'YTD Financial'
-        },
-        {
-          title: 'Care Management'
-        },
-        {
-          title: 'Metrics'
-        }
-      ]
-    },
-    {
-      title: 'Provider',
-      icon: 'md-person',
-      expanded: true,
-      children: [
-        {
-          title: 'Provider List'
-        },
-        {
-          title: 'Network Usage'
-        }
-      ]
-    },
-    {
-      title: 'User Guide'
     }
   ];
 
@@ -108,6 +115,13 @@ export class AppComponent {
     private statusBar: StatusBar
   ) {
     this.initializeApp();
+    if (location.href.includes('localhost')) {
+      this.sideNav[1].children.push({
+        title: 'Dev Style Guide',
+        icon: Icons.leftNavAssessments,
+        route: 'style-guide'
+      });
+    }
   }
 
   initializeApp() {
