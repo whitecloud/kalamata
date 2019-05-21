@@ -59,7 +59,7 @@ export class AppComponent {
           ]
         },
         {
-          title: 'Prescription',
+          title: 'Prescriptions',
           icon: Icons.leftNavDrug,
           children: [
             {

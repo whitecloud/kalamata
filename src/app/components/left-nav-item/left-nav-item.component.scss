@@ -18,7 +18,6 @@
   .title-container {
     display: flex;
     align-items: center;
-    margin: 5px 0;
   }
 
   relias-icon.title-icon {
@@ -27,7 +26,8 @@
   }
 
   relias-icon.dropdown {
-    // transition: 300ms;
+    margin-right: -6px;
+    transition: 300ms;
 
     &.expanded {
       -ms-transform: rotateX(180deg);
@@ -48,7 +48,7 @@
       font-size: 11px;
       letter-spacing: 0.13px; 
       font-family: Arial; 
-      font-weight: 700; 
+      font-weight: 700;
     }
 
     relias-icon.dropdown {
@@ -58,6 +58,8 @@
 
   &.nav-level-2,
   &.nav-level-3 {
+    font-size: 13px;
+    letter-spacing: 0.16px;
     padding-left: 13px;
     background: $nav-level-n;
   }
