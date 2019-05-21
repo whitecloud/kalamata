@@ -1,0 +1,16 @@
+.filter-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+
+  .description {
+    font-size: 14px; 
+    color: #6F6F6F; 
+    letter-spacing: 0.17px; 
+    text-align: right; 
+    line-height: 20px; 
+    font-family: Arial; 
+    font-weight: 400; 
+  }
+}

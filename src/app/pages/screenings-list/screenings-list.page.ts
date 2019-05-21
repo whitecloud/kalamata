@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Icons } from 'src/app/components/icon/icons.enum';
+import { AddEditScreeningModalPage } from './add-edit-screening-modal/add-edit-screening-modal.page';
 
 @Component({
   selector: 'app-screenings-list',
@@ -13,13 +14,21 @@ export class ScreeningsListPage implements OnInit {
   text = 'Add Screening';
 
   constructor(
-    private modal: ModalController
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
   }
 
-  openModal() {
+  addScreening() {
+    this.openModal();
+  }
+
+  async openModal() {
+    const modal = await this.modalCtrl.create({
+      component: AddEditScreeningModalPage
+    });
+    await modal.present();
   }
 
 }

@@ -5,13 +5,15 @@ import { IonicModule } from '@ionic/angular';
 import { TopNavComponent } from './top-nav/top-nav.component';
 import { BackButtonComponent } from './back-button/back-button.component';
 import { IconComponent } from './icon/icon.component';
+import { FilterBarComponent } from './filter-bar/filter-bar.component';
 
 @NgModule({
   declarations: [
     LeftNavItemComponent,
     TopNavComponent,
     BackButtonComponent,
-    IconComponent
+    IconComponent,
+    FilterBarComponent
   ],
   imports: [
     IonicModule,
@@ -21,7 +23,8 @@ import { IconComponent } from './icon/icon.component';
     LeftNavItemComponent,
     TopNavComponent,
     BackButtonComponent,
-    IconComponent
+    IconComponent,
+    FilterBarComponent
   ]
 })
 export class ComponentsModule { }

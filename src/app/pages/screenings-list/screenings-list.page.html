@@ -11,20 +11,16 @@
         </div>
       </div>
 
-      <!-- filter bar -->
-      <div padding>
-        <div>
-          <button class="relias-button button-filter">
-            Last Modified By: Smith, Mary
-            <relias-icon [name]="Icons.buttonFilter"></relias-icon>
-          </button>
-        </div>
-        <div>
-          <button class="relias-button button-primary">
-            Add Screening
-          </button>
-        </div>
+      <!-- filter bar and add screening -->
+      <relias-filter-bar></relias-filter-bar>
+      <div class="add-screening-container">
+        <button class="relias-button button-primary" (click)="addScreening()">
+          Add Screening
+        </button>
       </div>
+
+      <!-- screenings list table -->
+
     </div>
   </div>
 </ion-content>
