@@ -1,7 +1,10 @@
+$footer-buttons-padding: 20px;
+
 ion-modal {
   .modal-wrapper {
     --border-radius: 10px;
 
+    // match the header style from the style guide
     ion-toolbar {
       --background: #f0f0f0;
 
@@ -20,7 +23,37 @@ ion-modal {
         cursor: pointer;
       }
     }
+
+    // fix a footer to the bottom, supporting left and right buttons
+    .modal-footer {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      .left-buttons {
+        position: absolute;
+        left: $footer-buttons-padding;
+        bottom: $footer-buttons-padding;
+
+        button {
+          margin-right: 10px;
+        }
+      }
+      .right-buttons {
+        position: absolute;
+        right: $footer-buttons-padding;
+        bottom: $footer-buttons-padding;
+
+        button {
+          margin-left: 10px;
+        }
+      }
+    }
   }
+
+  // allow custom widths
   &.width-700 .modal-wrapper {
     --width: 700px;
   }
