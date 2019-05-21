@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/control-checked</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icon/control-checked" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-3" stroke="#5EAB44" fill="#5EAB44" x="0.5" y="0.5" width="17" height="17" rx="3"></rect>
+        <path d="M7.9028168,14.5 C7.56100483,14.5 7.23726568,14.3404877 7.02982118,14.0654666 L4.2222484,10.3558246 C3.85686319,9.87414471 3.95194192,9.18816345 4.43440755,8.82277825 C4.91765895,8.45582149 5.60364021,8.55247177 5.96902542,9.0349374 L7.81638159,11.4739819 L12.4610955,4.01540902 C12.7809057,3.50308395 13.4566719,3.34592903 13.9705685,3.6657393 C14.4836794,3.98476381 14.6416201,4.66052999 14.321024,5.17442661 L8.83317397,13.9829603 C8.64301651,14.2901982 8.31377693,14.4819272 7.95310637,14.4984285 C7.93581933,14.5 7.92010384,14.5 7.9028168,14.5 Z" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>
