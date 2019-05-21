@@ -1,22 +1,27 @@
-ion-modal .modal-wrapper {
-  --border-radius: 10px;
+ion-modal {
+  .modal-wrapper {
+    --border-radius: 10px;
 
-  ion-toolbar {
-    --background: #f0f0f0;
+    ion-toolbar {
+      --background: #f0f0f0;
 
-    ion-title {
-      padding: 12px 51px 10px 14px;
-      font-size: 18px; 
-      color: $text-normal; 
-      letter-spacing: 0.22px; 
-      text-align: justify; 
-      font-family: Arial; 
-      font-weight: 400; 
+      ion-title {
+        padding: 12px 51px 10px 14px;
+        font-size: 18px; 
+        color: $text-normal; 
+        letter-spacing: 0.22px; 
+        text-align: justify; 
+        font-family: Arial; 
+        font-weight: 400; 
+      }
+
+      relias-icon {
+        padding-right: 18px;
+        cursor: pointer;
+      }
     }
-
-    relias-icon {
-      padding-right: 18px;
-      cursor: pointer;
-    }
+  }
+  &.width-700 .modal-wrapper {
+    --width: 700px;
   }
 }
