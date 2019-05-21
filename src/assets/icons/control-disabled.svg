@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/control-disabled</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icon/control-disabled" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="BG" fill="#FFFFFF" fill-rule="nonzero" x="0" y="0" width="18" height="18"></rect>
+        <rect id="Rectangle-3" stroke="#D7D7D7" fill="#F0F0F0" x="0.5" y="0.5" width="17" height="17" rx="3"></rect>
+    </g>
+</svg>

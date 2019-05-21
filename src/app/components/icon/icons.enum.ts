@@ -5,9 +5,15 @@ export enum Icons {
   buttonNavExpand = 'button-nav-expand.png',
   controlChecked = 'control-checked.svg',
   controlUnchecked = 'control-unchecked.svg',
+  controlDisabled = 'control-disabled.svg',
+  controlOptionSelected = 'control-option-selected.svg',
+  controlOptionUnselected = 'control-option-unselected.svg',
+  controlOptionDisabled = 'control-option-disabled.svg',
   displayCheck = 'display-check.svg',
   floatFilterOff = 'float-filter-off.svg',
   floatFilterOn = 'float-filter-on.svg',
+  floatInfo = 'float-info.svg',
+  floatInfoLight = 'float-info-light.svg',
   floatSortAscending = 'float-sort-ascending.svg',
   floatSortDescending = 'float-sort-descending.svg',
   leftNavAnalytics = 'left-nav-Analytics.svg',
@@ -34,5 +40,8 @@ export enum Icons {
   leftNavRisk = 'left-nav-Risk.svg',
   leftNavSettings = 'left-nav-Settings.svg',
   navBack = 'nav-back.svg',
-  navClose = 'nav-close.svg'
+  navClose = 'nav-close.svg',
+  notificationError = 'notification-error.svg',
+  notificationGeneral = 'notification-general.svg',
+  notificationSuccess = 'notification-success.svg'
 }
