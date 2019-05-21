@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Icons } from '../icon/icons.enum';
-import { AlertController } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'relias-left-nav-item',
@@ -17,7 +16,7 @@ export class LeftNavItemComponent implements OnInit {
 
   constructor(
     private alertCtrl: AlertController,
-    private router: Router
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -43,7 +42,7 @@ export class LeftNavItemComponent implements OnInit {
     if (this.item.href) {
       location.href = this.item.href;
     } else if (this.item.route) {
-      this.router.navigate([this.item.route]);
+      this.navCtrl.navigateRoot(this.item.route, { animated: false });
     } else {
       const alert = await this.alertCtrl.create({
         header: 'Nothing to do',

@@ -5,32 +5,58 @@ ion-modal {
     --border-radius: 10px;
 
     // match the header style from the style guide
-    ion-toolbar {
-      --background: #f0f0f0;
+    ion-header {
+      position: static;
 
-      ion-title {
-        padding: 12px 51px 10px 14px;
-        font-size: 18px; 
-        color: $text-normal; 
-        letter-spacing: 0.22px; 
-        text-align: justify; 
-        font-family: Arial; 
-        font-weight: 400; 
+      ion-toolbar,
+      ion-toolbar .toolbar-container {
+        --min-height: 45px;
+        --height: 45px;
+        --padding-top: 0;
+        --padding-bottom: 0;
+        --padding-start: 0;
+        --padding-end: 0;
       }
 
-      relias-icon {
-        padding-right: 18px;
-        cursor: pointer;
+      ion-toolbar {
+        --background: #f0f0f0;
+  
+        ion-title {
+          padding: 12px 51px 10px 14px;
+          font-size: 18px; 
+          color: $text-normal; 
+          letter-spacing: 0.22px; 
+          text-align: justify; 
+          font-family: Arial; 
+          font-weight: 400; 
+        }
+  
+        relias-icon {
+          padding-right: 18px;
+          cursor: pointer;
+        }
       }
+    }
+
+    // content fits between the header and footer in the modal and scrolls if need be
+    .modal-content {
+      height: calc(100% - 70px);
+      overflow: auto;
+      padding: 20px;
     }
 
     // fix a footer to the bottom, supporting left and right buttons
     .modal-footer {
+      &:before {
+        display: none;
+      }
+
       position: absolute;
       bottom: 0;
       display: flex;
       justify-content: space-between;
       width: 100%;
+      height: 70px;
 
       .left-buttons {
         position: absolute;
@@ -53,7 +79,7 @@ ion-modal {
     }
   }
 
-  // allow custom widths
+  // allow custom modal widths
   &.width-700 .modal-wrapper {
     --width: 700px;
   }

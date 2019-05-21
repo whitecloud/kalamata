@@ -15,10 +15,7 @@ import { ComponentsModule } from './components/components.module';
   entryComponents: [],
   imports: [
     BrowserModule,
-    IonicModule.forRoot({
-      mode: 'ios',
-      animated: false
-    }),
+    IonicModule.forRoot(),
     AppRoutingModule,
     ComponentsModule
   ],
