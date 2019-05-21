@@ -9,17 +9,11 @@ import { Icons } from 'src/app/components/icon/icons.enum';
 export class StyleGuidePage implements OnInit {
 
   Icons = Icons;
-  icons: any[];
+  objectKeys = Object.keys;
 
   constructor() { }
 
   ngOnInit() {
-    this.icons = Object.entries(Icons).map(array => {
-      return {
-        name: array[0],
-        path: array[1]
-      }
-    })
   }
 
 }

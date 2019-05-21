@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 button {
   margin: 0 10px 10px 0;
 }
@@ -16,7 +18,7 @@ button {
   }
 
   .icon-background {
-    background: #aab9d8a1;
+    background: #eee;
     border-radius: 10px;
     width: 40px;
     height: 40px;
@@ -24,5 +26,10 @@ button {
     justify-content: center;
     align-items: center;
     margin: 5px;
+
+    // put the nav icons on a darker background
+    &[class*=' leftNav'] {
+      background: $nav-level-01;
+    }
   }
 }

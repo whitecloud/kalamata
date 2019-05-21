@@ -55,11 +55,11 @@
       <h1>Icons</h1>
 
       <div class="icons-container">
-        <div class="icon-container" *ngFor="let icon of icons">
-          <div class="icon-background" [title]="icon.name">
-            <relias-icon [name]="icon.path"></relias-icon>
+        <div class="icon-container" *ngFor="let key of objectKeys(Icons)">
+          <div class="icon-background {{key}}" [title]="key">
+            <relias-icon [name]="Icons[key]"></relias-icon>
           </div>
-          <label>{{ icon.name }}</label>
+          <label>{{ key }}</label>
         </div>
       </div>
 
