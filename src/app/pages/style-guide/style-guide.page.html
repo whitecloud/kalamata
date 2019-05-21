@@ -1,59 +1,66 @@
 <ion-content>
   <div class="page-content" padding>
-    <div class="content-card">
+    <div class="content-card" padding>
 
       <a class="view-style-guide" href="https://zeroheight.com/3zafyike3" target="_blank">
         <button class="relias-button button-primary button-large">
           View the style guide
         </button>
       </a>
+
+      <h1>Buttons</h1>
       
       <!-- relias button -->
-      <div padding>
-        <h2>.relias-button</h2>
-    
-        <button class="relias-button button-primary">
-          .button-primary
-        </button>
-    
-        <button class="relias-button button-secondary">
-          .button-secondary
-        </button>
-    
-        <button class="relias-button button-tertiary">
-          .button-tertiary
-        </button>
-      </div>
+      <h2>.relias-button</h2>
+  
+      <button class="relias-button button-primary">
+        .button-primary
+      </button>
+  
+      <button class="relias-button button-secondary">
+        .button-secondary
+      </button>
+  
+      <button class="relias-button button-tertiary">
+        .button-tertiary
+      </button>
     
       <!-- relias button as filter -->
-      <div padding>
-        <h2>.relias-button .button-filter</h2>
-    
-        <button class="relias-button button-filter">
-          With Icon
-          <relias-icon [name]="Icons.buttonFilter"></relias-icon>
-        </button>
-    
-        <button class="relias-button button-filter fixed">
-          No Icon
-        </button>
-    
-        <button class="relias-button button-filter read-only">
-          Read Only
-        </button>
-      </div>
+      <h2>.relias-button .button-filter</h2>
+  
+      <button class="relias-button button-filter">
+        With Icon
+        <relias-icon [name]="Icons.buttonFilter"></relias-icon>
+      </button>
+  
+      <button class="relias-button button-filter fixed">
+        No Icon
+      </button>
+  
+      <button class="relias-button button-filter read-only">
+        Read Only
+      </button>
     
       <!-- relias button large -->
-      <div padding>
-        <h2>.relias-button .button-large</h2>
-    
-        <button class="relias-button button-large button-primary">
-          .button-primary
-        </button>
-    
-        <button class="relias-button button-large button-secondary">
-          .button-secondary
-        </button>
+      <h2>.relias-button .button-large</h2>
+  
+      <button class="relias-button button-large button-primary">
+        .button-primary
+      </button>
+  
+      <button class="relias-button button-large button-secondary">
+        .button-secondary
+      </button>
+
+      <h1>Icons</h1>
+
+      <div class="icons-container">
+        <div class="icon-container" *ngFor="let icon of icons">
+          <div class="icon-background" [title]="icon.name">
+            <relias-icon [name]="icon.path"></relias-icon>
+          </div>
+          <label>{{ icon.name }}</label>
+        </div>
       </div>
 
     </div>

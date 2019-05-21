@@ -32,7 +32,7 @@ ion-menu.left-nav-menu ion-content {
 // add the green border around the page
 .page-content {
   background: $accent-primary;
-  height: 100%;
+  min-height: 100%;
 
   .content-card {
     background: #fff;
