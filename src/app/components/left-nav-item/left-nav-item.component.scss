@@ -6,8 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: $nav-background;
-  color: $nav-text;
+  background: $nav-level-01;
+  color: $text-nav-level-n;
   padding: 8px 6px;
   font-size: 14px; 
   letter-spacing: 0.17px; 
@@ -27,7 +27,7 @@
   }
 
   relias-icon.dropdown {
-    transition: 300ms;
+    // transition: 300ms;
 
     &.expanded {
       -ms-transform: rotateX(180deg);
@@ -59,7 +59,7 @@
   &.nav-level-2,
   &.nav-level-3 {
     padding-left: 13px;
-    background: $nav-darker;
+    background: $nav-level-n;
   }
 }
 

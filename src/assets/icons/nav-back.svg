@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7px" height="9px" viewBox="0 0 7 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/nav-back</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icon/nav-back" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M2.70871423,4.15988722 L6.51298123,1.01448167 C6.79367057,0.782404953 6.79367057,0.406134252 6.51298123,0.174057537 C6.2322919,-0.0580191789 5.77720457,-0.0580191789 5.49651523,0.174057537 L1.18401523,3.73967515 C0.9033259,3.97175187 0.9033259,4.34802257 1.18401523,4.58009928 L5.49651523,8.1457169 C5.77720457,8.37779362 6.2322919,8.37779362 6.51298123,8.1457169 C6.79367057,7.91364018 6.79367057,7.53736948 6.51298123,7.30529277 L2.70871423,4.15988722 Z" id="Path" fill="#6F6F6F"></path>
+    </g>
+</svg>

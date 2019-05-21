@@ -32,5 +32,7 @@ export enum Icons {
   leftNavReports = 'left-nav-Reports.svg',
   leftNavResources = 'left-nav-Resources.svg',
   leftNavRisk = 'left-nav-Risk.svg',
-  leftNavSettings = 'left-nav-Settings.svg'
+  leftNavSettings = 'left-nav-Settings.svg',
+  navBack = 'nav-back.svg',
+  navClose = 'nav-close.svg'
 }

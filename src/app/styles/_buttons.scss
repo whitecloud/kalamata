@@ -19,7 +19,7 @@ $button-border-radius: 4px;
   &.button-primary {
     background: $accent-primary;
     border: 2px solid $accent-primary;
-    color: $white-text;
+    color: $text-accent;
   }
   &.button-secondary {
     background: rgba(255,255,255,0.75);
@@ -28,8 +28,8 @@ $button-border-radius: 4px;
   }
   &.button-tertiary {
     background: rgba(255,255,255,0.75);
-    border: 1px solid $accent-tertiary;
-    color: $black-text;
+    border: 1px solid $border-button-tertiary;
+    color: $text-normal;
     padding: 7px 15px;
   }
   &.button-filter {

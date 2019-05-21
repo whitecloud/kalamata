@@ -1,17 +1,27 @@
-// navigation
-$nav-background: #3F6969;
-$nav-darker: #325352;
-$nav-text: #fff;
+// Copied from https://zeroheight.com/3zafyike3/p/931f7c
+// Sketch outputs these colors for us
 
-// text
-$white-text: #fff;
-$black-text: #4c4f51;
-
-// colors
-$accent-primary: #487F33;
-$accent-secondary: #007D7D;
-$accent-bad: #C01717;
-$accent-warning: #FDC600;
-
-// ask greg
-$accent-tertiary: #73777A;
+/**** Colors ****/
+$accent-primary: #487f33;
+$accent-secondary: #007d7d;
+$accent-status-bad: #c01717;
+$accent-status-good: #487f33;
+$accent-status-warning: #fdc600;
+$border-button-tertiary: #7f7f7f;
+$border-control: #c0c0bc;
+$border-control-error: #ebcccc;
+$border-tab: #898d90;
+$border-table-header: #a8a8a8;
+$nav-level-01: #3f6969;
+$nav-level-n: #325352;
+$table-altrow: #f6f6f6;
+$table-header: #f0f0f0;
+$text-accent: #ffffff;
+$text-hyperlink: #007d7d;
+$text-light: #6f6f6f;
+$text-nav-level-0: rgba(255, 255, 255, 0.5);
+$text-nav-level-n: #ffffff;
+$text-normal: #4c4f51;
+$text-page-header: #000000;
+$text-subtext: #818a91;
+$text-table-header: #3f3f3f;

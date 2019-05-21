@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Icons } from '../icon/icons.enum';
 
 @Component({
   selector: 'relias-back-button',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./back-button.component.scss'],
 })
 export class BackButtonComponent implements OnInit {
+
+  Icons = Icons;
 
   prevPage = {
     title: 'Member Details'
