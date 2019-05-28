@@ -44,3 +44,12 @@ ion-menu.left-nav-menu ion-content {
 *[padding] {
   padding: 10px;
 }
+
+
+//// PRINT ////
+
+@media print {
+  .no-print, .no-print * {
+    display: none !important;
+  }
+}
