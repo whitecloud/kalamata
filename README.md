@@ -18,6 +18,7 @@ If you're on a windows box, [here's a guide](https://blog.teamtreehouse.com/inst
 - [Angular](https://angular.io/docs)
 - [SASS](https://sass-lang.com/documentation)
 - [Lodash](https://lodash.com/docs)
+- [Bootstrap](https://ng-bootstrap.github.io/#/components)
 - NEEDS INFO: Charting framework
 
 ### Components
