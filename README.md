@@ -9,6 +9,8 @@ Just a temporary place to host new Angular frontend components for Kalamata unti
 - Run `npm i` in the root of the project, to get the project dependencies  
 - Run `ionic serve` in the root of the project to serve the app  
 
+If you're on a windows box, [here's a guide](https://blog.teamtreehouse.com/install-node-js-npm-windows) about getting NPM and node installed so you can run the commands above ^
+
 ## Dev  
 
 ### Stack  
