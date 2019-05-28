@@ -6,6 +6,7 @@ import { TopNavComponent } from './top-nav/top-nav.component';
 import { BackButtonComponent } from './back-button/back-button.component';
 import { IconComponent } from './icon/icon.component';
 import { FilterBarComponent } from './filter-bar/filter-bar.component';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { FilterBarComponent } from './filter-bar/filter-bar.component';
     TopNavComponent,
     BackButtonComponent,
     IconComponent,
-    FilterBarComponent
+    FilterBarComponent,
+    SearchbarComponent
   ],
   imports: [
     IonicModule,
@@ -24,7 +26,8 @@ import { FilterBarComponent } from './filter-bar/filter-bar.component';
     TopNavComponent,
     BackButtonComponent,
     IconComponent,
-    FilterBarComponent
+    FilterBarComponent,
+    SearchbarComponent
   ]
 })
 export class ComponentsModule { }

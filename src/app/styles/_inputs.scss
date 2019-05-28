@@ -1,0 +1,29 @@
+//// INPUT LABEL ////
+
+.input-label {
+  font-size: 14px; 
+  color: #4C4F51; 
+  letter-spacing: 0.17px; 
+  line-height: 20px; 
+  font-family: Arial; 
+  font-weight: 400; 
+  text-align: left; 
+  margin-bottom: 5px;
+}
+
+//// SEARCHBAR ////
+
+ion-searchbar {
+  padding: 0 !important;
+  height: 30px !important;
+
+  .searchbar-input-container {
+    height: 30px !important;
+  
+    input.searchbar-input {
+      background: #fff;
+      border: 1px solid #C8C8C8;
+      border-radius: 4px;
+    }
+  }
+}
