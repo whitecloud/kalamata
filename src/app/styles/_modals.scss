@@ -1,6 +1,8 @@
 $footer-buttons-padding: 20px;
 
 ion-modal {
+  overflow: scroll;
+
   .modal-wrapper {
     --border-radius: 10px;
 
@@ -41,7 +43,7 @@ ion-modal {
     // content fits between the header and footer in the modal and scrolls if need be
     .modal-content {
       height: calc(100% - 70px);
-      overflow: auto;
+      overflow: scroll;
       padding: 20px;
     }
 
