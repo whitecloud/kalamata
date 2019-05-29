@@ -1,3 +1,5 @@
+@import './colors';
+
 .page-header {
   color: #000;
   font-size: 22px; 
@@ -6,7 +8,7 @@
   font-weight: 400; 
 }
 .page-container {
-  color: #4C4F51;
+  color: $text-normal;
 }
 .sub-text {
   color: #818A91;
@@ -17,7 +19,7 @@
 
 .medium-text {
   font-size: 14px; 
-  color: #4C4F51; 
+  color: $text-normal; 
   letter-spacing: 0.17px; 
   line-height: 20px; 
   font-family: Arial; 

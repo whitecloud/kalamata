@@ -68,7 +68,7 @@ ngb-datepicker.dropdown-menu.show {
 
 .input-label {
   font-size: 14px; 
-  color: #4C4F51; 
+  color: $text-normal; 
   letter-spacing: 0.17px; 
   line-height: 20px; 
   font-family: Arial; 
@@ -88,7 +88,7 @@ ion-searchbar {
   
     input.searchbar-input {
       background: #fff;
-      border: 1px solid #C8C8C8;
+      border: 1px solid $border-default;
       border-radius: 4px;
     }
   }

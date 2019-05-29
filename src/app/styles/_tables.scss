@@ -1,9 +1,45 @@
+@import './colors';
+
 table {
-  th {
-    background: #f0f0f0;
+  border: 1px solid $border-default;
+  width: 100%;
+
+  th, td {
+    height: 45px;
+    font-size: 14px; 
+    color: $text-normal; 
+    letter-spacing: 0.17px; 
+    font-family: Helvetica; 
+    font-weight: 400; 
+    text-align: left;
+    padding: 5px 38px 5px 11px;
+
+    &:not(:last-of-type) {
+      border-right: 1px solid $border-default;
+    }
   }
 
-  tr:nth-child(odd) {
+  th {
+    background: #f0f0f0;
+    border-bottom: 1px solid $border-default;
+    white-space: nowrap;
+  }
+
+  tr:nth-child(even) {
     background: #F6F6F6;
+  }
+  tr:not(:last-of-type) {
+    border-bottom: 1px solid $border-default;
+  }
+
+  &.no-column-borders {
+    th, td {
+      border-right: none;
+    }
+  }
+  &.no-alternating-row-shading {
+    tr:nth-child(even) {
+      background: initial;
+    }
   }
 }
