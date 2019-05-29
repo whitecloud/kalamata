@@ -3,6 +3,8 @@
 //// DATEPICKER ////
 
 ngb-datepicker.dropdown-menu.show {
+  border: 0;
+  margin-top: 1px;
   box-shadow: 0px 2px 6px -3px #333;
   background: #fff;
   z-index: 10;
