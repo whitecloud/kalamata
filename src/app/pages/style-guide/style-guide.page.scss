@@ -1,5 +1,9 @@
 @import '../../styles/colors';
 
+h1 {
+  margin-top: 30px;
+}
+
 button {
   margin: 0 10px 10px 0;
 }
@@ -30,7 +34,7 @@ button {
     margin: 5px;
 
     // put the nav icons on a darker background
-    &[class*=' leftNav'] {
+    &[class*=' leftNav'], &[class*=' calendar'] {
       background: $nav-level-01;
     }
   }

@@ -3,6 +3,7 @@ export enum Icons {
   buttonFilter = 'button-filter.png',
   buttonNavCollapse = 'button-nav-collapse.png',
   buttonNavExpand = 'button-nav-expand.png',
+  calendar = 'calendar.svg',
   controlChecked = 'control-checked.svg',
   controlUnchecked = 'control-unchecked.svg',
   controlDisabled = 'control-disabled.svg',

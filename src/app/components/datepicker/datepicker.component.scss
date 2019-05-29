@@ -1,0 +1,46 @@
+@import '../../styles/colors';
+
+.datepicker-container {
+  display: inline-flex;
+  border-radius: 4px;
+  overflow: hidden;
+
+  input {
+    width: 90px;
+    height: 30px;
+    font-size: 14px;
+    padding: 5px;
+    line-height: 30px;
+    border: 1px solid #d2d2d2;
+    border-right: 0;
+    border-radius: 4px 0 0 4px;
+    color: $text-light;
+
+    &.selected {
+      color: #000;
+    }
+  }
+
+  .button-container {
+    background: $accent-primary;
+    display: flex;
+    height: 30px;
+    width: 42px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: .9;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.datepicker-footer {
+  text-align: center;
+  color: $text-light;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding-bottom: 10px;
+}
