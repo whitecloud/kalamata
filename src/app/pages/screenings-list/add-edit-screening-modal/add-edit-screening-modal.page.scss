@@ -1,4 +1,8 @@
-.member-search-container {
-  max-width: 310px;
-  margin-right: 10px;
+.member-and-date-container {
+  display: flex;
+
+  .member-search-container {
+    width: 310px;
+    margin-right: 10px;
+  }
 }
