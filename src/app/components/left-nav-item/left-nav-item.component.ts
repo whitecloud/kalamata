@@ -47,7 +47,8 @@ export class LeftNavItemComponent implements OnInit {
       const alert = await this.alertCtrl.create({
         header: 'Nothing to do',
         message: this.item.title + ' hasn\'t been configured to go anywhere yet.',
-        buttons: ['Okay']
+        buttons: ['Okay'],
+        mode: 'md'
       });
       await alert.present();
     }

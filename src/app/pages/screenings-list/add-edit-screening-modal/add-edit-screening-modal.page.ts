@@ -23,6 +23,7 @@ export class AddEditScreeningModalPage implements OnInit {
     const alert = await this.alertCtrl.create({
       header: 'Discard Changes',
       message: 'Are you sure you want to discard all changes? This cannot be undone.',
+      mode: 'md',
       buttons: [
         { 
           text: 'Cancel',
