@@ -1,5 +1,7 @@
-span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+:host {
+  display: inline-block;
+}
+
+img {
+  display: block;
 }
