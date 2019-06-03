@@ -26,7 +26,11 @@
       <span>Last Height: 72.0 in</span>
     </div>
 
-    <table class="no-column-borders no-alternating-row-shading">
+    <div class="table-see-more" [ngClass]="{'hidden': tableAtBottom}" (click)="showMore()">
+      <span>See More</span>
+    </div>
+
+    <table id="edit-screening" class="no-column-borders no-alternating-row-shading">
       <thead>
         <th>Attribute</th>
         <th>Value</th>
@@ -220,7 +224,7 @@
 
         <!-- sixth group -->
         <tr [ngClass]="{'disabled': optOut[5]}">
-          <td>Blood Glucose</td>
+          <td>HbA1c</td>
           <td>
             <input value=""> %
           </td>

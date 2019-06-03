@@ -11,6 +11,9 @@ export class AddEditScreeningModalPage implements OnInit {
 
   Icons = Icons;
   optOut: boolean[] = new Array(6).fill(false);
+  
+  table: HTMLElement;
+  tableAtBottom: boolean = false;
 
   constructor(
     private modalCtrl: ModalController,
@@ -18,6 +21,20 @@ export class AddEditScreeningModalPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.table = document.getElementById('edit-screening');
+
+    // hide the see more floating button when the table has scrolled all of the way
+    // TODO: make it so you can click through the button after the smooth fadeout
+    this.table.onscroll = () => {
+      this.tableAtBottom = this.table.scrollTop >= (this.table.clientHeight - 45);
+    }
+  }
+
+  showMore() {
+    this.table.scroll({
+      top: this.table.scrollTop + this.table.clientHeight - 15,
+      behavior: 'smooth'
+    });
   }
 
   toggleOptOut(i: number) {
