@@ -17,3 +17,26 @@
     }
   }
 }
+
+relias-icon[ng-reflect-name="control-checked.svg"],
+relias-icon[ng-reflect-name="control-unchecked.svg"] {
+  cursor: pointer;
+}
+
+select.small,
+input {
+  width: 72px;
+}
+
+table {
+  max-height: calc(100% - 110px);
+  overflow: scroll;
+  display: block;
+}
+
+// disabled rows disable everything except 
+// the last column (the opt out box itself)
+tr.disabled td:not(:last-of-type) {
+  pointer-events: none;
+  opacity: .5;
+}

@@ -10,6 +10,7 @@ import { ModalController, AlertController } from '@ionic/angular';
 export class AddEditScreeningModalPage implements OnInit {
 
   Icons = Icons;
+  optOut: boolean[] = new Array(6).fill(false);
 
   constructor(
     private modalCtrl: ModalController,
@@ -17,6 +18,10 @@ export class AddEditScreeningModalPage implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+  toggleOptOut(i: number) {
+    this.optOut[i] = !this.optOut[i];
   }
 
   async closeModal() {

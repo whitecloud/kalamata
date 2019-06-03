@@ -93,3 +93,31 @@ ion-searchbar {
     }
   }
 }
+
+//// ALL ////
+
+input, select {
+  background: #fff;
+  border: 1px solid $border-default;
+  border-radius: 4px;
+  height: 30px;
+  color: $text-normal;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+
+//// INPUT //// 
+
+input {
+  padding: 5px;
+}
+
+
+//// SELECT ////
+
+select {
+  width: 100px;
+}
