@@ -10,7 +10,7 @@ import { ModalController, AlertController } from '@ionic/angular';
 export class AddEditScreeningModalPage implements OnInit {
 
   Icons = Icons;
-  optOut: boolean[] = new Array(6).fill(false);
+  optOut: boolean[] = new Array(9).fill(false);
   
   table: HTMLElement;
   tableAtBottom: boolean = false;

@@ -40,7 +40,7 @@
       </thead>
       <tbody>
 
-        <!-- first group -->
+        <!-- group 1 -->
         <tr class="no-border" [ngClass]="{'disabled': optOut[0]}">
           <td>Height</td>
           <td>
@@ -87,7 +87,7 @@
           <td></td>
         </tr>
 
-        <!-- second group -->
+        <!-- group 2 -->
         <tr class="no-border" [ngClass]="{'disabled': optOut[1]}">
           <td>BP Systolic</td>
           <td>
@@ -118,7 +118,7 @@
           <td></td>
         </tr>
 
-        <!-- third group -->
+        <!-- group 3 -->
         <tr class="no-border" [ngClass]="{'disabled': optOut[2]}">
           <td>Total Cholesterol</td>
           <td>
@@ -167,7 +167,7 @@
           <td></td>
         </tr>
 
-        <!-- fourth group -->
+        <!-- group 4 -->
         <tr class="no-border" [ngClass]="{'disabled': optOut[3]}">
           <td>Blood Lead Level</td>
           <td>
@@ -200,7 +200,7 @@
           <td></td>
         </tr>
 
-        <!-- fifth group -->
+        <!-- group 5 -->
         <tr [ngClass]="{'disabled': optOut[4]}">
           <td>Blood Glucose</td>
           <td>
@@ -222,7 +222,7 @@
           </td>
         </tr>
 
-        <!-- sixth group -->
+        <!-- group 6 -->
         <tr [ngClass]="{'disabled': optOut[5]}">
           <td>HbA1c</td>
           <td>
@@ -243,6 +243,76 @@
             </relias-icon>
           </td>
         </tr>
+
+        <!-- group 7 -->
+        <tr [ngClass]="{'disabled': optOut[6]}">
+          <td>Blood Oxygen</td>
+          <td>
+            <input value=""> mmHg
+          </td>
+          <td>
+            <relias-datepicker></relias-datepicker>
+          </td>
+          <td>
+            <select>
+              <option>???</option>
+            </select>
+          </td>
+          <td>
+            <relias-icon 
+              [name]="optOut[6] ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(6)">
+            </relias-icon>
+          </td>
+        </tr>
+
+        <!-- group 8 -->
+        <tr [ngClass]="{'disabled': optOut[7]}">
+          <td>Pregnant</td>
+          <td>
+            <select class="small">
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </td>
+          <td>
+            <relias-datepicker></relias-datepicker>
+          </td>
+          <td></td>
+          <td>
+            <relias-icon 
+              [name]="optOut[7] ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(7)">
+            </relias-icon>
+          </td>
+        </tr>
+
+        <!-- group 9 -->
+        <tr class="no-border" [ngClass]="{'disabled': optOut[8]}">
+          <td>Tobacco Use</td>
+          <td>
+            <select class="small">
+              <option>Yes</option>
+            </select>
+          </td>
+          <td>
+            <relias-datepicker></relias-datepicker>
+          </td>
+          <td></td>
+          <td>
+            <relias-icon 
+              [name]="optOut[8] ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(8)">
+            </relias-icon>
+          </td>
+        </tr>
+        <tr [ngClass]="{'disabled': optOut[8]}">
+          <td></td>
+          <td colspan="4">
+            <input class="comment" placeholder="Comment">
+          </td>
+        </tr>
+
       </tbody>
     </table>
 

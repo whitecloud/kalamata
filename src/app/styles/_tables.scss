@@ -29,6 +29,12 @@ table {
     border-bottom: 1px solid $border-default;
     white-space: nowrap;
     padding: 5px 38px 5px 11px;
+
+    // fix the headers to be sticky
+    // this won't work in IE ¯\_(ツ)_/¯
+    position: sticky;
+    top: 0;
+    z-index: 10;
   }
 
   tr:nth-child(even) {
