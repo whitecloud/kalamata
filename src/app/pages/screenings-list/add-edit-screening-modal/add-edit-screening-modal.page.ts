@@ -26,13 +26,13 @@ export class AddEditScreeningModalPage implements OnInit {
     // hide the see more floating button when the table has scrolled all of the way
     // TODO: make it so you can click through the button after the smooth fadeout
     this.table.onscroll = () => {
-      this.tableAtBottom = this.table.scrollTop >= (this.table.clientHeight - 45);
+      this.tableAtBottom = this.table.scrollTop >= this.table.clientHeight;
     }
   }
 
   showMore() {
     this.table.scroll({
-      top: this.table.scrollTop + this.table.clientHeight - 15,
+      top: this.table.scrollTop + this.table.clientHeight - 45,
       behavior: 'smooth'
     });
   }
