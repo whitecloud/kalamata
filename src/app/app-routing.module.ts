@@ -16,6 +16,12 @@ const routes: Routes = [
     path: 'style-guide',
     loadChildren: './pages/style-guide/style-guide.module#StyleGuidePageModule'
   },
+  { path: 'boolean-popover', loadChildren: './components/table-filter/boolean-table-filter/boolean-popover/boolean-popover.module#BooleanPopoverPageModule' },
+  { path: 'date-popover', loadChildren: './components/table-filter/date-table-filter/date-popover/date-popover.module#DatePopoverPageModule' },
+  { path: 'multi-select-popover', loadChildren: './components/table-filter/multi-select-table-filter/multi-select-popover/multi-select-popover.module#MultiSelectPopoverPageModule' },
+  { path: 'number-popover', loadChildren: './components/table-filter/number-table-filter/number-popover/number-popover.module#NumberPopoverPageModule' },
+  { path: 'single-select-popover', loadChildren: './components/table-filter/single-select-table-filter/single-select-popover/single-select-popover.module#SingleSelectPopoverPageModule' },
+  { path: 'string-popover', loadChildren: './components/table-filter/string-table-filter/string-popover/string-popover.module#StringPopoverPageModule' },
 ];
 
 @NgModule({

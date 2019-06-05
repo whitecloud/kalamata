@@ -10,6 +10,13 @@ import { FilterBarComponent } from './filter-bar/filter-bar.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { FormsModule } from '@angular/forms';
+import { TableFilterComponent } from './table-filter/table-filter.component';
+import { BooleanTableFilterComponent } from './table-filter/boolean-table-filter/boolean-table-filter.component';
+import { DateTableFilterComponent } from './table-filter/date-table-filter/date-table-filter.component';
+import { MultiSelectTableFilterComponent } from './table-filter/multi-select-table-filter/multi-select-table-filter.component';
+import { NumberTableFilterComponent } from './table-filter/number-table-filter/number-table-filter.component';
+import { SingleSelectTableFilterComponent } from './table-filter/single-select-table-filter/single-select-table-filter.component';
+import { StringTableFilterComponent } from './table-filter/string-table-filter/string-table-filter.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,14 @@ import { FormsModule } from '@angular/forms';
     IconComponent,
     FilterBarComponent,
     SearchbarComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    TableFilterComponent,
+    BooleanTableFilterComponent,
+    DateTableFilterComponent,
+    MultiSelectTableFilterComponent,
+    NumberTableFilterComponent,
+    SingleSelectTableFilterComponent,
+    StringTableFilterComponent
   ],
   imports: [
     IonicModule,
@@ -34,7 +48,14 @@ import { FormsModule } from '@angular/forms';
     IconComponent,
     FilterBarComponent,
     SearchbarComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    TableFilterComponent,
+    BooleanTableFilterComponent,
+    DateTableFilterComponent,
+    MultiSelectTableFilterComponent,
+    NumberTableFilterComponent,
+    SingleSelectTableFilterComponent,
+    StringTableFilterComponent
   ]
 })
 export class ComponentsModule { }
