@@ -33,6 +33,12 @@
             ],
             "styles": [
               {
+                "input": "./node_modules/bootstrap/scss/bootstrap.scss"
+              },
+              {
+                "input": "./node_modules/relias-ui-lib/_relias-ui.scss"
+              },
+              {
                 "input": "src/theme/variables.scss"
               },
               {

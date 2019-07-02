@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { AddEditScreeningModalPage } from './add-edit-screening-modal.page';
+import { ReliasUIModule } from 'src/app/relias-ui.module';
 
 const routes: Routes = [
   {
@@ -19,7 +20,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ReliasUIModule
   ],
   declarations: [AddEditScreeningModalPage]
 })

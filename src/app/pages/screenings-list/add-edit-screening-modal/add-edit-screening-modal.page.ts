@@ -15,6 +15,8 @@ export class AddEditScreeningModalPage implements OnInit {
   table: HTMLElement;
   tableAtBottom: boolean = false;
 
+  dateValue: Date = new Date();
+
   constructor(
     private modalCtrl: ModalController,
     private alertCtrl: AlertController

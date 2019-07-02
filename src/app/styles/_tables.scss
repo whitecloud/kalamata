@@ -1,56 +1,58 @@
 @import './colors';
 
-table {
+table.relias-table {
   border: 1px solid $border-default;
   width: 100%;
 
-  thead {
+  >thead {
     border-right: 1px solid $table-header;
   }
 
-  th, td {
-    height: 45px;
-    font-size: 14px; 
-    color: $text-normal; 
-    letter-spacing: 0.17px; 
-    font-family: Helvetica; 
-    font-weight: 400; 
-    text-align: left;
-    padding: 5px 11px;
-    min-width: 74px;
+  >thead, >tbody {
+    >th, >tr>td {
+      height: 45px;
+      font-size: 14px; 
+      color: $text-normal; 
+      letter-spacing: 0.17px; 
+      font-family: Helvetica; 
+      font-weight: 400; 
+      text-align: left;
+      padding: 5px 11px;
+      min-width: 74px;
+  
+      &:not(:last-of-type) {
+        border-right: 1px solid $border-default;
+      }
+    }
+  
+    >th {
+      background: $table-header;
+      border-bottom: 1px solid $border-default;
+      white-space: nowrap;
+      padding: 5px 38px 5px 11px;
+  
+      // fix the headers to be sticky
+      // this won't work in IE ¯\_(ツ)_/¯
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-    &:not(:last-of-type) {
-      border-right: 1px solid $border-default;
+    >tr:nth-child(even) {
+      background: #F6F6F6;
+    }
+    >tr:not(:last-of-type):not(.no-border) {
+      border-bottom: 1px solid $border-default;
     }
   }
 
-  th {
-    background: $table-header;
-    border-bottom: 1px solid $border-default;
-    white-space: nowrap;
-    padding: 5px 38px 5px 11px;
-
-    // fix the headers to be sticky
-    // this won't work in IE ¯\_(ツ)_/¯
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  tr:nth-child(even) {
-    background: #F6F6F6;
-  }
-  tr:not(:last-of-type):not(.no-border) {
-    border-bottom: 1px solid $border-default;
-  }
-
   &.no-column-borders {
-    th, td {
+    >thead>th, >tbody>tr>td {
       border-right: none;
     }
   }
   &.no-alternating-row-shading {
-    tr:nth-child(even) {
+    >tbody>tr:nth-child(even) {
       background: initial;
     }
   }

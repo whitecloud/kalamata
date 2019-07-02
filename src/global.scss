@@ -45,6 +45,45 @@ ion-menu.left-nav-menu ion-content {
   padding: 10px;
 }
 
+body {
+  line-height: initial;
+}
+
+
+//// RELIAS UI FIXES ////
+
+// the width of the input shouldn't be set to 85%, take 100% of 
+// the space available except for what's needed for the button
+.rui-datepicker .ui-calendar.ui-calendar-w-btn .ui-inputtext {
+  width: calc(100% - 33px);
+}
+// the width of the button should not be 15% of its container,
+// that width can change. The button looks good at 33px wide
+.rui-datepicker .ui-calendar.ui-calendar-w-btn .ui-datepicker-trigger.ui-button {
+  width: 33px;
+}
+// the specs I'm looking at have the calendar component showing
+// as 120-132px wide throughout the application. Just enough
+// space to show the date in the input box next to the button
+// just setting this as the new default for this application
+.rui-datepicker .ui-calendar {
+  width: 132px;
+}
+// the dates you can click on have variable widths, which makes
+// for some ovals instead of circles when selected, fix that
+.rui-datepicker .ui-datepicker table td > a, 
+.rui-datepicker .ui-datepicker table td > span {
+  width: 33px;
+  height: 33px;
+  margin: auto;
+}
+// when you select a date, the text should be white on the dark
+// green background as soon as you select it
+.rui-datepicker .ui-datepicker table td > a.ui-state-active, 
+.ui-datepicker table td > span.ui-state-active {
+  color: #fff;
+}
+
 
 //// PRINT ////
 

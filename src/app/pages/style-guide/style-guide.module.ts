@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { StyleGuidePage } from './style-guide.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { ReliasUIModule } from 'src/app/relias-ui.module';
 
 const routes: Routes = [
   {
@@ -21,7 +22,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    ComponentsModule
+    ComponentsModule,
+    ReliasUIModule
   ],
   declarations: [StyleGuidePage]
 })

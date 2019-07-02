@@ -8,7 +8,7 @@
 
 <!-- content -->
 <ion-content>
-  <div class="modal-content">
+  <div class="relias-modal-content">
     
     <div class="member-and-date-container">
       <div class="member-search-container">
@@ -17,7 +17,7 @@
       </div>
       <div class="date-container">
         <div class="input-label">Default Measurement Date:</div>
-        <relias-datepicker></relias-datepicker>
+        <rui-datepicker name="defaultDate" [(ngModel)]="dateValue"></rui-datepicker>
       </div>
     </div>
     <div class="member-info medium-text">
@@ -31,7 +31,7 @@
         More Fields
     </div>
 
-    <table id="edit-screening" class="no-column-borders no-alternating-row-shading">
+    <table id="edit-screening" class="relias-table no-column-borders no-alternating-row-shading">
       <thead>
         <th>Attribute</th>
         <th>Value</th>
@@ -48,7 +48,7 @@
             <input value="72.0"> in
           </td>
           <td>
-            <relias-datepicker></relias-datepicker>
+            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
           </td>
           <td>
             <select>
@@ -95,7 +95,7 @@
             <input value="125"> mmHg
           </td>
           <td>
-            <relias-datepicker></relias-datepicker>
+            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
           </td>
           <td>
             <select>
@@ -126,7 +126,7 @@
             <input value=""> mg/dl
           </td>
           <td>
-            <relias-datepicker></relias-datepicker>
+            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
           </td>
           <td>
             <select>
@@ -175,7 +175,7 @@
             <input value="25"> ug/dl
           </td>
           <td>
-            <relias-datepicker></relias-datepicker>
+            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
           </td>
           <td>
             <select>
@@ -208,7 +208,7 @@
             <input value=""> mg/dl
           </td>
           <td>
-            <relias-datepicker></relias-datepicker>
+            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
           </td>
           <td>
             <select>
@@ -230,7 +230,7 @@
             <input value=""> %
           </td>
           <td>
-            <relias-datepicker></relias-datepicker>
+            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
           </td>
           <td>
             <select>
@@ -252,7 +252,7 @@
             <input value=""> mmHg
           </td>
           <td>
-            <relias-datepicker></relias-datepicker>
+            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
           </td>
           <td>
             <select>
@@ -277,7 +277,7 @@
             </select>
           </td>
           <td>
-            <relias-datepicker></relias-datepicker>
+            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
           </td>
           <td></td>
           <td>
@@ -297,7 +297,7 @@
             </select>
           </td>
           <td>
-            <relias-datepicker></relias-datepicker>
+            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
           </td>
           <td></td>
           <td>
@@ -321,7 +321,7 @@
 </ion-content>
 
 <!-- footer buttons -->
-<ion-footer class="modal-footer">
+<ion-footer class="relias-modal-footer">
   <div class="left-buttons">
     <button class="relias-button button-secondary" disabled>
       Save and Enter Another

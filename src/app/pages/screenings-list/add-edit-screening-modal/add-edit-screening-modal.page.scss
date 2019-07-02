@@ -30,7 +30,7 @@ input {
   width: 72px;
 }
 
-table {
+table.relias-table {
   max-height: calc(100% - 110px);
   overflow: scroll;
   display: block;
@@ -58,6 +58,7 @@ tr.disabled td:not(:nth-of-type(5)) {
   font-size: 14px;
   padding-left: 18px;
   transition: 300ms;
+  z-index: 1;
 
   relias-icon {
     position: absolute;

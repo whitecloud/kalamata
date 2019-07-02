@@ -3,8 +3,13 @@
     <div class="content-card" padding>
 
       <a class="view-style-guide" href="https://zeroheight.com/3zafyike3" target="_blank">
-        <button class="relias-button button-primary button-large">
+        <button rui-button-primary>
           View the style guide
+        </button>
+      </a>
+      <a class="view-style-guide" href="https://relias-ui-doc.azurewebsites.net/components" target="_blank">
+        <button rui-button-secondary>
+          Relias UI Lib Docs
         </button>
       </a>
 
@@ -12,17 +17,17 @@
       
       <!-- relias button -->
       <h4>.relias-button</h4>
-  
-      <button class="relias-button button-primary">
-        .button-primary
+
+      <button rui-button-primary>
+        Primary Button
       </button>
   
-      <button class="relias-button button-secondary">
-        .button-secondary
+      <button rui-button-secondary>
+        Secondary Button
       </button>
 
-      <button class="relias-button button-tertiary">
-        .button-tertiary
+      <button rui-button-tertiary>
+        Tertiary Button
       </button>
       
       <button class="relias-button icon-only">
@@ -78,6 +83,21 @@
           <label>{{ key }}</label>
         </div>
       </div>
+
+      <h1>Relias UI Lib Components</h1>
+
+      <h4>Multiselect</h4>
+
+      <rui-multiselect
+        name="multiselect"
+        [values]="values"
+        [placeholder]="filterLabel"
+        [searchPlaceholder]="searchPlaceholder">
+      </rui-multiselect>
+
+      <h4>Datepicker</h4>
+
+      <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
 
     </div>
   </div>
