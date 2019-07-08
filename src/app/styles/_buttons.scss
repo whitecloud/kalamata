@@ -23,23 +23,6 @@ $button-border-radius: 4px;
   }
 
   // different button styles
-  &.button-primary {
-    background: $accent-primary;
-    border: 2px solid $accent-primary;
-    color: $text-accent;
-  }
-  &.button-secondary {
-    background: rgba(255,255,255,0.75);
-    border: 2px solid $accent-primary;
-    color: $accent-primary;
-  }
-  &.button-tertiary {
-    background: rgba(255,255,255,0.75);
-    border: 1px solid $border-button-tertiary;
-    color: $text-normal;
-    padding: 7px 15px;
-    font-weight: 400; 
-  }
   &.icon-only {
     border: 1px solid $border-button-tertiary;
     height: 30px;

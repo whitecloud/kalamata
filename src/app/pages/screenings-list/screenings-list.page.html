@@ -7,14 +7,16 @@
         <relias-back-button></relias-back-button>
         <div class="title">
           <div class="page-header">Metabolics Screenings</div>
-          <button class="relias-button button-secondary">Export</button>
+          <button rui-button-secondary>
+            Export
+          </button>
         </div>
       </div>
 
       <!-- filter bar and add screening -->
       <relias-filter-bar></relias-filter-bar>
       <div class="add-screening-container">
-        <button class="relias-button button-primary" (click)="addScreening()">
+        <button rui-button-primary (click)="addScreening()">
           Add Screening
         </button>
       </div>

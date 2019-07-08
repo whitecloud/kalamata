@@ -192,7 +192,7 @@
         <tr [ngClass]="{'disabled': optOut[3]}">
           <td>Risk of Lead Exposure</td>
           <td>
-            <select class="small">
+            <select class="small-select">
               <option>Yes</option>
             </select>
           </td>
@@ -271,7 +271,7 @@
         <tr [ngClass]="{'disabled': optOut[7]}">
           <td>Pregnant</td>
           <td>
-            <select class="small">
+            <select class="small-select">
               <option>Yes</option>
               <option>No</option>
             </select>
@@ -292,7 +292,7 @@
         <tr class="no-border" [ngClass]="{'disabled': optOut[8]}">
           <td>Tobacco Use</td>
           <td>
-            <select class="small">
+            <select class="small-select">
               <option>Yes</option>
             </select>
           </td>
@@ -323,15 +323,15 @@
 <!-- footer buttons -->
 <ion-footer class="relias-modal-footer">
   <div class="left-buttons">
-    <button class="relias-button button-secondary" disabled>
+    <button rui-button-secondary disabled="true">
       Save and Enter Another
     </button>
   </div>
   <div class="right-buttons">
-    <button class="relias-button button-secondary" (click)="closeModal()">
+    <button rui-button-secondary (click)="closeModal()">
       Cancel
     </button>
-    <button class="relias-button button-primary" disabled>
+    <button rui-button-primary disabled="true">
       Save
     </button>
   </div>

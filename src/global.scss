@@ -60,6 +60,7 @@ body {
 // the width of the button should not be 15% of its container,
 // that width can change. The button looks good at 33px wide
 .rui-datepicker .ui-calendar.ui-calendar-w-btn .ui-datepicker-trigger.ui-button {
+  height: 30px;
   width: 33px;
 }
 // the specs I'm looking at have the calendar component showing
@@ -67,6 +68,7 @@ body {
 // space to show the date in the input box next to the button
 // just setting this as the new default for this application
 .rui-datepicker .ui-calendar {
+  display: flex;
   width: 132px;
 }
 // the dates you can click on have variable widths, which makes
@@ -83,6 +85,12 @@ body {
 .ui-datepicker table td > span.ui-state-active {
   color: #fff;
 }
+// fix the height of the buttons to match spec
+.rui-btn.relias-btn-primary, .rui-btn.relias-btn-secondary {
+  max-height: 30px;
+  line-height: 15px;
+}
+
 
 
 //// PRINT ////
