@@ -8,7 +8,6 @@ import { BackButtonComponent } from './back-button/back-button.component';
 import { IconComponent } from './icon/icon.component';
 import { FilterBarComponent } from './filter-bar/filter-bar.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
-import { DatepickerComponent } from './datepicker/datepicker.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -18,8 +17,7 @@ import { FormsModule } from '@angular/forms';
     BackButtonComponent,
     IconComponent,
     FilterBarComponent,
-    SearchbarComponent,
-    DatepickerComponent
+    SearchbarComponent
   ],
   imports: [
     IonicModule,
@@ -33,8 +31,7 @@ import { FormsModule } from '@angular/forms';
     BackButtonComponent,
     IconComponent,
     FilterBarComponent,
-    SearchbarComponent,
-    DatepickerComponent
+    SearchbarComponent
   ]
 })
 export class ComponentsModule { }
