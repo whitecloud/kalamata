@@ -8,7 +8,7 @@
 
 <!-- content -->
 <ion-content>
-  <div class="relias-modal-content">
+  <div class="relias-modal-content" *ngIf="screening">
     
     <div class="member-and-date-container">
       <div class="member-search-container">
@@ -17,7 +17,7 @@
       </div>
       <div class="date-container">
         <div class="input-label">Default Measurement Date:</div>
-        <rui-datepicker name="defaultDate" [(ngModel)]="dateValue"></rui-datepicker>
+        <rui-datepicker [model]="screening.defaultDate" (valueSelected)="defaultDateSelected($event)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
       </div>
     </div>
     <div class="member-info medium-text">
@@ -34,7 +34,7 @@
     <table id="edit-screening" class="relias-table no-column-borders no-alternating-row-shading">
       <thead>
         <th>Attribute</th>
-        <th>Value</th>
+        <th class="value-header">Value</th>
         <th>Date</th>
         <th>Method</th>
         <th>Opt<br>Out</th>
@@ -42,13 +42,13 @@
       <tbody>
 
         <!-- group 1 -->
-        <tr class="no-border" [ngClass]="{'disabled': optOut[0]}">
+        <tr class="no-border" [ngClass]="{'disabled': screening.height.optOut}">
           <td>Height</td>
           <td>
-            <input value="72.0"> in
+            <input [(ngModel)]="screening.height.value"> in
           </td>
           <td>
-            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
+            <rui-datepicker [model]="screening.height.date" (valueSelected)="dateSelected($event, screening.height)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
             <select>
@@ -57,45 +57,45 @@
           </td>
           <td>
             <relias-icon 
-              [name]="optOut[0] ? Icons.controlChecked : Icons.controlUnchecked"
-              (click)="toggleOptOut(0)">
+              [name]="screening.height.optOut ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(screening.height)">
             </relias-icon>
           </td>
         </tr>
-        <tr class="no-border" [ngClass]="{'disabled': optOut[0]}">
+        <tr class="no-border" [ngClass]="{'disabled': screening.height.optOut}">
           <td>Weight</td>
           <td>
-            <input value="215"> lb
+            <input [(ngModel)]="screening.weight.value"> lb
           </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
-        <tr class="no-border" [ngClass]="{'disabled': optOut[0]}">
+        <tr class="no-border" [ngClass]="{'disabled': screening.height.optOut}">
           <td>Waist</td>
           <td>
-            <input> in
+            <input [(ngModel)]="screening.waist.value"> in
           </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
-        <tr [ngClass]="{'disabled': optOut[0]}">
+        <tr [ngClass]="{'disabled': screening.height.optOut}">
           <td>BMI</td>
-          <td>29.2</td>
+          <td>{{ screening.weight.value | bmi:screening.height.value }}</td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
 
         <!-- group 2 -->
-        <tr class="no-border" [ngClass]="{'disabled': optOut[1]}">
+        <tr class="no-border" [ngClass]="{'disabled': screening.bpSystolic.optOut}">
           <td>BP Systolic</td>
           <td>
-            <input value="125"> mmHg
+            <input [(ngModel)]="screening.bpSystolic.value"> mmHg
           </td>
           <td>
-            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
+            <rui-datepicker [model]="screening.bpSystolic.date" (valueSelected)="dateSelected($event, screening.bpSystolic)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
             <select>
@@ -104,15 +104,15 @@
           </td>
           <td>
             <relias-icon 
-              [name]="optOut[1] ? Icons.controlChecked : Icons.controlUnchecked"
-              (click)="toggleOptOut(1)">
+              [name]="screening.bpSystolic.optOut ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(screening.bpSystolic)">
             </relias-icon>
           </td>
         </tr>
-        <tr [ngClass]="{'disabled': optOut[1]}">
+        <tr [ngClass]="{'disabled': screening.bpSystolic.optOut}">
           <td>BP Diastolic</td>
           <td>
-            <input value="85"> mmHg
+            <input [(ngModel)]="screening.bpDiastolic.value"> mmHg
           </td>
           <td></td>
           <td></td>
@@ -120,13 +120,13 @@
         </tr>
 
         <!-- group 3 -->
-        <tr class="no-border" [ngClass]="{'disabled': optOut[2]}">
+        <tr class="no-border" [ngClass]="{'disabled': screening.totalCholesterol.optOut}">
           <td>Total Cholesterol</td>
           <td>
-            <input value=""> mg/dl
+            <input [(ngModel)]="screening.totalCholesterol.value"> mg/dl
           </td>
           <td>
-            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
+            <rui-datepicker [model]="screening.totalCholesterol.date" (valueSelected)="dateSelected($event, screening.totalCholesterol)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
             <select>
@@ -135,33 +135,33 @@
           </td>
           <td>
             <relias-icon 
-              [name]="optOut[2] ? Icons.controlChecked : Icons.controlUnchecked"
-              (click)="toggleOptOut(2)">
+              [name]="screening.totalCholesterol.optOut ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(screening.totalCholesterol)">
             </relias-icon>
           </td>
         </tr>
-        <tr class="no-border" [ngClass]="{'disabled': optOut[2]}">
+        <tr class="no-border" [ngClass]="{'disabled': screening.totalCholesterol.optOut}">
           <td>LDL</td>
           <td>
-            <input value=""> mg/dl
+            <input [(ngModel)]="screening.ldl.value"> mg/dl
           </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
-        <tr class="no-border" [ngClass]="{'disabled': optOut[2]}">
+        <tr class="no-border" [ngClass]="{'disabled': screening.totalCholesterol.optOut}">
           <td>HDL</td>
           <td>
-            <input value=""> mg/dl
+            <input [(ngModel)]="screening.hdl.value"> mg/dl
           </td>
           <td></td>
           <td></td>
           <td></td>
         </tr>
-        <tr [ngClass]="{'disabled': optOut[2]}">
+        <tr [ngClass]="{'disabled': screening.totalCholesterol.optOut}">
           <td>Triglycerides</td>
           <td>
-            <input value=""> mg/dl
+            <input [(ngModel)]="screening.triglycerides.value"> mg/dl
           </td>
           <td></td>
           <td></td>
@@ -169,13 +169,13 @@
         </tr>
 
         <!-- group 4 -->
-        <tr class="no-border" [ngClass]="{'disabled': optOut[3]}">
+        <tr class="no-border" [ngClass]="{'disabled': screening.bloodLeadLevel.optOut}">
           <td>Blood Lead Level</td>
           <td>
-            <input value="25"> ug/dl
+            <input [(ngModel)]="screening.bloodLeadLevel.value"> ug/dl
           </td>
           <td>
-            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
+            <rui-datepicker [model]="screening.bloodLeadLevel.date" (valueSelected)="dateSelected($event, screening.bloodLeadLevel)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
             <select>
@@ -184,12 +184,12 @@
           </td>
           <td>
             <relias-icon 
-              [name]="optOut[3] ? Icons.controlChecked : Icons.controlUnchecked"
-              (click)="toggleOptOut(3)">
+              [name]="screening.bloodLeadLevel.optOut ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(screening.bloodLeadLevel)">
             </relias-icon>
           </td>
         </tr>
-        <tr [ngClass]="{'disabled': optOut[3]}">
+        <tr [ngClass]="{'disabled': screening.bloodLeadLevel.optOut}">
           <td>Risk of Lead Exposure</td>
           <td>
             <select class="small-select">
@@ -202,13 +202,13 @@
         </tr>
 
         <!-- group 5 -->
-        <tr [ngClass]="{'disabled': optOut[4]}">
+        <tr [ngClass]="{'disabled': screening.bloodGlucose.optOut}">
           <td>Blood Glucose</td>
           <td>
-            <input value=""> mg/dl
+            <input [(ngModel)]="screening.bloodGlucose.value"> mg/dl
           </td>
           <td>
-            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
+            <rui-datepicker [model]="screening.bloodGlucose.date" (valueSelected)="dateSelected($event, screening.bloodGlucose)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
             <select>
@@ -217,20 +217,20 @@
           </td>
           <td>
             <relias-icon 
-              [name]="optOut[4] ? Icons.controlChecked : Icons.controlUnchecked"
-              (click)="toggleOptOut(4)">
+              [name]="screening.bloodGlucose.optOut ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(screening.bloodGlucose)">
             </relias-icon>
           </td>
         </tr>
 
         <!-- group 6 -->
-        <tr [ngClass]="{'disabled': optOut[5]}">
+        <tr [ngClass]="{'disabled': screening.hba1c.optOut}">
           <td>HbA1c</td>
           <td>
-            <input value=""> %
+            <input [(ngModel)]="screening.hba1c.value"> %
           </td>
           <td>
-            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
+            <rui-datepicker [model]="screening.hba1c.date" (valueSelected)="dateSelected($event, screening.hba1c)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
             <select>
@@ -239,20 +239,20 @@
           </td>
           <td>
             <relias-icon 
-              [name]="optOut[5] ? Icons.controlChecked : Icons.controlUnchecked"
-              (click)="toggleOptOut(5)">
+              [name]="screening.hba1c.optOut ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(screening.hba1c)">
             </relias-icon>
           </td>
         </tr>
 
         <!-- group 7 -->
-        <tr [ngClass]="{'disabled': optOut[6]}">
+        <tr [ngClass]="{'disabled': screening.bloodOxygen.optOut}">
           <td>Blood Oxygen</td>
           <td>
-            <input value=""> mmHg
+            <input [(ngModel)]="screening.bloodOxygen.value"> mmHg
           </td>
           <td>
-            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
+            <rui-datepicker [model]="screening.bloodOxygen.date" (valueSelected)="dateSelected($event, screening.bloodOxygen)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
             <select>
@@ -261,14 +261,14 @@
           </td>
           <td>
             <relias-icon 
-              [name]="optOut[6] ? Icons.controlChecked : Icons.controlUnchecked"
-              (click)="toggleOptOut(6)">
+              [name]="screening.bloodOxygen.optOut ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(screening.bloodOxygen)">
             </relias-icon>
           </td>
         </tr>
 
         <!-- group 8 -->
-        <tr [ngClass]="{'disabled': optOut[7]}">
+        <tr [ngClass]="{'disabled': screening.pregnant.optOut}">
           <td>Pregnant</td>
           <td>
             <select class="small-select">
@@ -277,19 +277,19 @@
             </select>
           </td>
           <td>
-            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
+            <rui-datepicker [model]="screening.pregnant.date" (valueSelected)="dateSelected($event, screening.pregnant)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td></td>
           <td>
             <relias-icon 
-              [name]="optOut[7] ? Icons.controlChecked : Icons.controlUnchecked"
-              (click)="toggleOptOut(7)">
+              [name]="screening.pregnant.optOut ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(screening.pregnant)">
             </relias-icon>
           </td>
         </tr>
 
         <!-- group 9 -->
-        <tr class="no-border" [ngClass]="{'disabled': optOut[8]}">
+        <tr class="no-border" [ngClass]="{'disabled': screening.tobaccoUse.optOut}">
           <td>Tobacco Use</td>
           <td>
             <select class="small-select">
@@ -297,20 +297,20 @@
             </select>
           </td>
           <td>
-            <rui-datepicker [(ngModel)]="dateValue"></rui-datepicker>
+            <rui-datepicker [model]="screening.tobaccoUse.date" (valueSelected)="dateSelected($event, screening.tobaccoUse)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td></td>
           <td>
             <relias-icon 
-              [name]="optOut[8] ? Icons.controlChecked : Icons.controlUnchecked"
-              (click)="toggleOptOut(8)">
+              [name]="screening.tobaccoUse.optOut ? Icons.controlChecked : Icons.controlUnchecked"
+              (click)="toggleOptOut(screening.tobaccoUse)">
             </relias-icon>
           </td>
         </tr>
-        <tr [ngClass]="{'disabled': optOut[8]}">
+        <tr [ngClass]="{'disabled': screening.tobaccoUse.optOut}">
           <td></td>
           <td colspan="4">
-            <input class="comment" placeholder="Comment">
+            <input class="comment" placeholder="Comment" [(ngModel)]="screening.tobaccoUse.comment">
           </td>
         </tr>
 

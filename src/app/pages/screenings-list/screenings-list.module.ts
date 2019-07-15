@@ -9,6 +9,7 @@ import { ScreeningsListPage } from './screenings-list.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { AddEditScreeningModalPage } from './add-edit-screening-modal/add-edit-screening-modal.page';
 import { ReliasUIModule } from 'src/app/relias-ui.module';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 const routes: Routes = [
   {
@@ -24,7 +25,8 @@ const routes: Routes = [
     IonicModule,
     ComponentsModule,
     RouterModule.forChild(routes),
-    ReliasUIModule
+    ReliasUIModule,
+    PipesModule
   ],
   declarations: [
     ScreeningsListPage,

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpService } from './http.service';
+import { MetabolicScreening } from '../models/metabolic-screening.model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +9,11 @@ import { Router } from '@angular/router';
 export class ScreeningsService {
 
   constructor(
-    private router: Router
   ) { }
+
+  async getScreenings(): Promise<MetabolicScreening[]> {
+    return [
+      new MetabolicScreening()
+    ]
+  }
 }

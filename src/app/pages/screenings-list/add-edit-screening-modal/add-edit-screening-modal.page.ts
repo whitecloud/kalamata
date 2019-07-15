@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Icons } from 'src/app/components/icon/icons.enum';
 import { ModalController, AlertController } from '@ionic/angular';
+import { MetabolicScreening } from 'src/app/models/metabolic-screening.model';
+import { Attribute } from 'src/app/models/attribute.model';
 
 @Component({
   selector: 'relias-add-edit-screening-modal',
@@ -10,12 +12,12 @@ import { ModalController, AlertController } from '@ionic/angular';
 export class AddEditScreeningModalPage implements OnInit {
 
   Icons = Icons;
-  optOut: boolean[] = new Array(9).fill(false);
   
   table: HTMLElement;
   tableAtBottom: boolean = false;
 
-  dateValue: Date = new Date();
+  screening: MetabolicScreening;
+  today: Date = new Date();
 
   constructor(
     private modalCtrl: ModalController,
@@ -23,12 +25,23 @@ export class AddEditScreeningModalPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.table = document.getElementById('edit-screening');
+    this.screening = new MetabolicScreening();
 
     // hide the see more floating button when the table has scrolled all of the way
-    this.table.onscroll = () => {
-      this.tableAtBottom = this.table.scrollTop >= this.table.clientHeight;
-    }
+    setTimeout(() => {
+      this.table = document.getElementById('edit-screening');
+      this.table.onscroll = () => {
+        this.tableAtBottom = this.table.scrollTop >= this.table.clientHeight;
+      }
+    });
+  }
+
+  defaultDateSelected($event) {
+    console.log($event);
+  }
+
+  dateSelected($event, attribute: Attribute) {
+    attribute.date = $event;
   }
 
   showMore() {
@@ -38,8 +51,8 @@ export class AddEditScreeningModalPage implements OnInit {
     });
   }
 
-  toggleOptOut(i: number) {
-    this.optOut[i] = !this.optOut[i];
+  toggleOptOut(attr: Attribute) {
+    attr.optOut = !attr.optOut;
   }
 
   async closeModal() {
