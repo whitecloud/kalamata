@@ -29,7 +29,18 @@ export class AddEditScreeningModalPage implements OnInit {
 
   ngOnInit() {
     this.screening = new MetabolicScreening();
+    this.setUpForm();
 
+    // hide the see more floating button when the table has scrolled all of the way
+    setTimeout(() => {
+      this.table = document.getElementById('edit-screening');
+      this.table.onscroll = () => {
+        this.tableAtBottom = this.table.scrollTop >= this.table.clientHeight;
+      }
+    });
+  }
+
+  setUpForm() {
     // set all of the form validators 
     this.mbsForm = new FormGroup({
       'heightMethod': new FormControl(this.screening.height.method),
@@ -82,14 +93,6 @@ export class AddEditScreeningModalPage implements OnInit {
       'pregnant': new FormControl(this.screening.pregnant.value),
       'tobaccoUse': new FormControl(this.screening.tobaccoUse.value),
       'tobaccoUseComment': new FormControl(this.screening.tobaccoUse.comment)
-    });
-
-    // hide the see more floating button when the table has scrolled all of the way
-    setTimeout(() => {
-      this.table = document.getElementById('edit-screening');
-      this.table.onscroll = () => {
-        this.tableAtBottom = this.table.scrollTop >= this.table.clientHeight;
-      }
     });
   }
 
