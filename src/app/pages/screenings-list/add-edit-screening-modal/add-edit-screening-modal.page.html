@@ -83,7 +83,7 @@
         </tr>
         <tr [ngClass]="{'disabled': screening.height.optOut}">
           <td>BMI</td>
-          <td>{{ screening.weight.value | bmi:screening.height.value }}</td>
+          <td>{{ weight | bmi:height }}</td>
           <td></td>
           <td></td>
           <td></td>

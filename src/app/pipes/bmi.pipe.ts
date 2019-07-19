@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class BMIPipe implements PipeTransform {
   transform(weight: number, height: number): any {
-    if (isNaN(weight) || isNaN(height)) {
+    if (isNaN(weight) || weight === null || isNaN(height) || height === null) {
       return '-';
     }
     else {
