@@ -8,7 +8,7 @@
 
 <!-- content -->
 <ion-content>
-  <div class="relias-modal-content" *ngIf="screening">
+  <form novalidate [formGroup]="mbsForm" class="relias-modal-content" *ngIf="screening">
     
     <div class="member-and-date-container">
       <div class="member-search-container">
@@ -45,14 +45,15 @@
         <tr class="no-border" [ngClass]="{'disabled': screening.height.optOut}">
           <td>Height</td>
           <td>
-            <input [(ngModel)]="screening.height.value"> in
+            <input type="number" formControlName="height"> in
           </td>
           <td>
             <rui-datepicker [model]="screening.height.date" (valueSelected)="dateSelected($event, screening.height)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
-            <select>
+            <select formControlName="heightMethod">
               <option>Actual</option>
+              <option>Estimated</option>
             </select>
           </td>
           <td>
@@ -65,7 +66,7 @@
         <tr class="no-border" [ngClass]="{'disabled': screening.height.optOut}">
           <td>Weight</td>
           <td>
-            <input [(ngModel)]="screening.weight.value"> lb
+            <input type="number" formControlName="weight"> lb
           </td>
           <td></td>
           <td></td>
@@ -74,7 +75,7 @@
         <tr class="no-border" [ngClass]="{'disabled': screening.height.optOut}">
           <td>Waist</td>
           <td>
-            <input [(ngModel)]="screening.waist.value"> in
+            <input type="number" formControlName="waist"> in
           </td>
           <td></td>
           <td></td>
@@ -92,13 +93,14 @@
         <tr class="no-border" [ngClass]="{'disabled': screening.bpSystolic.optOut}">
           <td>BP Systolic</td>
           <td>
-            <input [(ngModel)]="screening.bpSystolic.value"> mmHg
+            <input type="number" formControlName="bpSystolic"> mmHg
           </td>
           <td>
             <rui-datepicker [model]="screening.bpSystolic.date" (valueSelected)="dateSelected($event, screening.bpSystolic)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
-            <select>
+            <select formControlName="bpSystolicMethod">
+              <option>Automated</option>
               <option>Manual</option>
             </select>
           </td>
@@ -112,7 +114,7 @@
         <tr [ngClass]="{'disabled': screening.bpSystolic.optOut}">
           <td>BP Diastolic</td>
           <td>
-            <input [(ngModel)]="screening.bpDiastolic.value"> mmHg
+            <input type="number" formControlName="bpDiastolic"> mmHg
           </td>
           <td></td>
           <td></td>
@@ -123,14 +125,15 @@
         <tr class="no-border" [ngClass]="{'disabled': screening.totalCholesterol.optOut}">
           <td>Total Cholesterol</td>
           <td>
-            <input [(ngModel)]="screening.totalCholesterol.value"> mg/dl
+            <input type="number" formControlName="totalCholesterol"> mg/dl
           </td>
           <td>
             <rui-datepicker [model]="screening.totalCholesterol.date" (valueSelected)="dateSelected($event, screening.totalCholesterol)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
-            <select>
+            <select formControlName="totalCholesterolMethod">
               <option>Fasting</option>
+              <option>Non-fasting</option>
             </select>
           </td>
           <td>
@@ -143,7 +146,7 @@
         <tr class="no-border" [ngClass]="{'disabled': screening.totalCholesterol.optOut}">
           <td>LDL</td>
           <td>
-            <input [(ngModel)]="screening.ldl.value"> mg/dl
+            <input type="number" formControlName="ldl"> mg/dl
           </td>
           <td></td>
           <td></td>
@@ -152,7 +155,7 @@
         <tr class="no-border" [ngClass]="{'disabled': screening.totalCholesterol.optOut}">
           <td>HDL</td>
           <td>
-            <input [(ngModel)]="screening.hdl.value"> mg/dl
+            <input type="number" formControlName="hdl"> mg/dl
           </td>
           <td></td>
           <td></td>
@@ -161,7 +164,7 @@
         <tr [ngClass]="{'disabled': screening.totalCholesterol.optOut}">
           <td>Triglycerides</td>
           <td>
-            <input [(ngModel)]="screening.triglycerides.value"> mg/dl
+            <input type="number" formControlName="triglycerides"> mg/dl
           </td>
           <td></td>
           <td></td>
@@ -172,14 +175,15 @@
         <tr class="no-border" [ngClass]="{'disabled': screening.bloodLeadLevel.optOut}">
           <td>Blood Lead Level</td>
           <td>
-            <input [(ngModel)]="screening.bloodLeadLevel.value"> ug/dl
+            <input type="number" formControlName="bloodLeadLevel"> ug/dl
           </td>
           <td>
             <rui-datepicker [model]="screening.bloodLeadLevel.date" (valueSelected)="dateSelected($event, screening.bloodLeadLevel)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
-            <select>
-              <option>???</option>
+            <select formControlName="bloodLeadLevelMethod">
+              <option>Actual</option>
+              <option>Estimated</option>
             </select>
           </td>
           <td>
@@ -192,8 +196,9 @@
         <tr [ngClass]="{'disabled': screening.bloodLeadLevel.optOut}">
           <td>Risk of Lead Exposure</td>
           <td>
-            <select class="small-select">
+            <select class="small-select" formControlName="riskLeadExposure">
               <option>Yes</option>
+              <option>No</option>
             </select>
           </td>
           <td></td>
@@ -205,14 +210,15 @@
         <tr [ngClass]="{'disabled': screening.bloodGlucose.optOut}">
           <td>Blood Glucose</td>
           <td>
-            <input [(ngModel)]="screening.bloodGlucose.value"> mg/dl
+            <input type="number" formControlName="bloodGlucose"> mg/dl
           </td>
           <td>
             <rui-datepicker [model]="screening.bloodGlucose.date" (valueSelected)="dateSelected($event, screening.bloodGlucose)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
-            <select>
+            <select formControlName="bloodGlucoseMethod">
               <option>Actual</option>
+              <option>Estimated</option>
             </select>
           </td>
           <td>
@@ -227,14 +233,15 @@
         <tr [ngClass]="{'disabled': screening.hba1c.optOut}">
           <td>HbA1c</td>
           <td>
-            <input [(ngModel)]="screening.hba1c.value"> %
+            <input type="number" formControlName="hba1c"> %
           </td>
           <td>
             <rui-datepicker [model]="screening.hba1c.date" (valueSelected)="dateSelected($event, screening.hba1c)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
-            <select>
+            <select formControlName="hba1cMethod">
               <option>Actual</option>
+              <option>Estimated</option>
             </select>
           </td>
           <td>
@@ -249,14 +256,15 @@
         <tr [ngClass]="{'disabled': screening.bloodOxygen.optOut}">
           <td>Blood Oxygen</td>
           <td>
-            <input [(ngModel)]="screening.bloodOxygen.value"> mmHg
+            <input type="number" formControlName="bloodOxygen"> mmHg
           </td>
           <td>
             <rui-datepicker [model]="screening.bloodOxygen.date" (valueSelected)="dateSelected($event, screening.bloodOxygen)" [maxDate]="today" name="fieldName" ngDefaultControl></rui-datepicker>
           </td>
           <td>
-            <select>
-              <option>???</option>
+            <select formControlName="bloodOxygenMethod">
+              <option>Automated</option>
+              <option>Manual</option>
             </select>
           </td>
           <td>
@@ -271,7 +279,7 @@
         <tr [ngClass]="{'disabled': screening.pregnant.optOut}">
           <td>Pregnant</td>
           <td>
-            <select class="small-select">
+            <select class="small-select" formControlName="pregnant">
               <option>Yes</option>
               <option>No</option>
             </select>
@@ -292,8 +300,9 @@
         <tr class="no-border" [ngClass]="{'disabled': screening.tobaccoUse.optOut}">
           <td>Tobacco Use</td>
           <td>
-            <select class="small-select">
+            <select class="small-select" formControlName="tobaccoUse">
               <option>Yes</option>
+              <option>No</option>
             </select>
           </td>
           <td>
@@ -310,20 +319,20 @@
         <tr [ngClass]="{'disabled': screening.tobaccoUse.optOut}">
           <td></td>
           <td colspan="4">
-            <input class="comment" placeholder="Comment" [(ngModel)]="screening.tobaccoUse.comment">
+            <input class="comment" placeholder="Comment" formControlName="tobaccoUseComment">
           </td>
         </tr>
 
       </tbody>
     </table>
 
-  </div>
+  </form>
 </ion-content>
 
 <!-- footer buttons -->
 <ion-footer class="relias-modal-footer">
   <div class="left-buttons">
-    <button rui-button-secondary disabled="true">
+    <button rui-button-secondary (click)="saveAndEnterAnother()" [disabled]="mbsForm.pristine || mbsForm.invalid">
       Save and Enter Another
     </button>
   </div>
@@ -331,7 +340,7 @@
     <button rui-button-secondary (click)="closeModal()">
       Cancel
     </button>
-    <button rui-button-primary disabled="true">
+    <button rui-button-primary (click)="save()" [disabled]="mbsForm.pristine || mbsForm.invalid">
       Save
     </button>
   </div>

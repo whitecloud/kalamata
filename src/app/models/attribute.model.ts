@@ -4,7 +4,7 @@ export class Attribute {
   key: number;
   value: any;
   date: Date; // unix timestamp?
-  methodKey?: AttributeMethod['key'];
+  method?: string;
   optOut: boolean;
   comment?: string;
 
@@ -12,7 +12,7 @@ export class Attribute {
     this.key = 0;
     this.value = undefined;
     this.date = date;
-    this.methodKey = undefined;
+    this.method = undefined;
     this.optOut = false;
     this.comment = undefined;
   }
