@@ -130,8 +130,8 @@ export class AddEditScreeningModalPage implements OnInit {
     attr.optOut = !attr.optOut;
   }
   
-  get height() { return this.mbsForm.get('height').value; }
-  get weight() { return this.mbsForm.get('weight').value; }
+  get height() { return this.mbsForm.get('height'); }
+  get weight() { return this.mbsForm.get('weight'); }
 
   async closeModal() {
     const alert = await this.alertCtrl.create({

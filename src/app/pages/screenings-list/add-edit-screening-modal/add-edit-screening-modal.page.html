@@ -83,7 +83,7 @@
         </tr>
         <tr [ngClass]="{'disabled': screening.height.optOut}">
           <td>BMI</td>
-          <td>{{ weight | bmi:height }}</td>
+          <td *ngIf="weight.valid && height.valid">{{ weight.value | bmi:height.value }}</td>
           <td></td>
           <td></td>
           <td></td>
