@@ -16,12 +16,12 @@ export class ScreeningsService {
   }
 
   addScreening(screening: MetabolicScreening) {
-    console.log()
+    console.log(screening);
     this.screeningsRef.add(this.sanitize(screening));
   }
 
-  updateScreening(id: string, screening: MetabolicScreening) {
-    this.screeningsRef.doc(id).update(this.sanitize(screening));
+  updateScreening(docId: string, screening: MetabolicScreening) {
+    this.screeningsRef.doc(docId).update(this.sanitize(screening));
   }
 
   getScreenings(): Observable<MetabolicScreening[]> {
@@ -33,6 +33,10 @@ export class ScreeningsService {
           .sortBy('defaultDate')
           .value();
       }));
+  }
+
+  deleteScreening(docId: string) {
+    return this.screeningsRef.doc(docId).delete();
   }
 
   /**

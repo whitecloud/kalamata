@@ -14,7 +14,7 @@
       </div>
 
       <!-- filter bar and add screening -->
-      <relias-filter-bar></relias-filter-bar>
+      <relias-filter-bar [length]="screenings.length" *ngIf="$screenings | async as screenings"></relias-filter-bar>
       <div class="add-screening-container">
         <button rui-button-primary (click)="addScreening()">
           Add Screening
@@ -22,8 +22,8 @@
       </div>
 
       <!-- screenings list table -->
-      <div class="table-container">
-        <table class="relias-table" *ngIf="$screenings | async as screenings; else loading">
+      <div class="table-container" *ngIf="$screenings | async as screenings; else loading">
+        <table class="relias-table" *ngIf="screenings.length > 0">
           <thead>
             <th>Member ID</th>
             <th>Name</th>
@@ -48,7 +48,7 @@
             <th>Tobacco<br>Use</th>
           </thead>
           <tbody>
-            <tr *ngFor="let screening of screenings">
+            <tr *ngFor="let screening of screenings" (click)="editScreening(screening)">
               <td>{{ screening.memberId }}</td>
               <td>{{ screening.memberName }}</td>
               <td>{{ screening.defaultDate | date:shortDate }}</td>
@@ -76,8 +76,13 @@
               <td>{{ screening.pregnant ? screening.pregnant.value : '-' }}</td>
               <td>{{ screening.tobaccoUse ? screening.tobaccoUse.value : '-' }}</td>
             </tr>
+            <tr></tr>
           </tbody>
         </table>
+
+        <div class="loading-container" *ngIf="screenings.length === 0">
+          <h6>No metabolic screenings recorded.</h6>
+        </div>
       </div>
 
       <ng-template #loading>

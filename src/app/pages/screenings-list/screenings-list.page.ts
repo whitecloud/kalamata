@@ -30,9 +30,14 @@ export class ScreeningsListPage implements OnInit {
     this.openModal();
   }
 
-  async openModal() {
+  editScreening(screening: MetabolicScreening) {
+    this.openModal(screening);
+  }
+
+  async openModal(screening?: MetabolicScreening) {
     const modal = await this.modalCtrl.create({
       component: AddEditScreeningModalPage,
+      componentProps: { screening },
       cssClass: 'mbs-modal'
     });
     await modal.present();

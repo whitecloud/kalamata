@@ -32,29 +32,44 @@ export class MetabolicScreening {
   id?: string;
   exists?: boolean;
 
-  constructor() {
+  constructor(screening?: MetabolicScreening) {
     const now = new Date;
+    
+    this.setOrDefault(screening, 'id');
+    this.setOrDefault(screening, 'exists');
 
-    this.memberId = 1;
-    this.memberName = 'Aztecan, Ishwar'
-    this.defaultDate = now;
-    this.lastModifiedBy = 'Taylor, Matt (Relias)'
+    this.setOrDefault(screening, 'memberId', 1);
+    this.setOrDefault(screening, 'memberName', 'Aztecan, Ishwar');
+    this.setOrDefault(screening, 'defaultDate', now);
+    this.setOrDefault(screening, 'lastModifiedBy', 'Taylor, Matt (Relias)');
 
-    this.height = new Attribute(now, 'Actual');
-    this.weight = new Attribute(now);
-    this.waist = new Attribute(now);
-    this.bpSystolic = new Attribute(now, 'Automated');
-    this.bpDiastolic = new Attribute(now);
-    this.totalCholesterol = new Attribute(now, 'Fasting');
-    this.ldl = new Attribute(now);
-    this.hdl = new Attribute(now);
-    this.triglycerides = new Attribute(now);
-    this.bloodLeadLevel = new Attribute(now, 'Actual');
-    this.riskLeadExposure = new Attribute(now);
-    this.bloodGlucose = new Attribute(now, 'Actual');
-    this.hba1c = new Attribute(now, 'Actual');
-    this.bloodOxygen = new Attribute(now, 'Automated');
-    this.pregnant = new Attribute(now);
-    this.tobaccoUse = new Attribute(now);
+    this.setOrDefault(screening, 'height', new Attribute(now, 'Actual'));
+    this.setOrDefault(screening, 'weight', new Attribute(now));
+    this.setOrDefault(screening, 'waist', new Attribute(now));
+    this.setOrDefault(screening, 'bpSystolic', new Attribute(now, 'Automated'));
+    this.setOrDefault(screening, 'bpDiastolic', new Attribute(now));
+    this.setOrDefault(screening, 'totalCholesterol', new Attribute(now, 'Fasting'));
+    this.setOrDefault(screening, 'ldl', new Attribute(now));
+    this.setOrDefault(screening, 'hdl', new Attribute(now));
+    this.setOrDefault(screening, 'triglycerides', new Attribute(now));
+    this.setOrDefault(screening, 'bloodLeadLevel', new Attribute(now, 'Actual'));
+    this.setOrDefault(screening, 'riskLeadExposure', new Attribute(now));
+    this.setOrDefault(screening, 'bloodGlucose', new Attribute(now, 'Actual'));
+    this.setOrDefault(screening, 'hba1c', new Attribute(now, 'Actual'));
+    this.setOrDefault(screening, 'bloodOxygen', new Attribute(now, 'Automated'));
+    this.setOrDefault(screening, 'pregnant', new Attribute(now));
+    this.setOrDefault(screening, 'tobaccoUse', new Attribute(now));
+  }
+
+  setOrDefault(screening: MetabolicScreening = null, property: string, defaultValue?: any) {
+    if (screening && screening[property]) {
+      const value = screening[property];
+      if (value.date && value.date.seconds) {
+        value.date = new Date(value.date.seconds * 1000);
+      }
+      this[property] = value;
+    } else {
+      this[property] = defaultValue;
+    }
   }
 }

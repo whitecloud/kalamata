@@ -1,9 +1,5 @@
 @import "../../styles/colors";
 
-.content-card {
-  padding-bottom: 10px;
-}
-
 .title-container {
   border-bottom: 1px solid #b8b8b4;
 
@@ -20,4 +16,9 @@
 
 .table-container {
   overflow: auto;
+  padding-bottom: 18px;
+
+  tr {
+    cursor: pointer;
+  }
 }

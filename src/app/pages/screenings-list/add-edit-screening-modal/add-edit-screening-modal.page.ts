@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Icons } from 'src/app/components/icon/icons.enum';
 import { ModalController, AlertController, ToastController } from '@ionic/angular';
 import { MetabolicScreening } from 'src/app/models/metabolic-screening.model';
@@ -13,6 +13,7 @@ import { ScreeningsService } from 'src/app/services/screenings.service';
   styleUrls: ['./add-edit-screening-modal.page.scss'],
 })
 export class AddEditScreeningModalPage implements OnInit {
+  @Input() screening: MetabolicScreening;
 
   Icons = Icons;
   
@@ -20,8 +21,7 @@ export class AddEditScreeningModalPage implements OnInit {
 
   table: HTMLElement;
   tableAtBottom: boolean = false;
-
-  screening: MetabolicScreening;
+  editing: boolean;
   today: Date = new Date();
 
   constructor(
@@ -32,7 +32,9 @@ export class AddEditScreeningModalPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.screening = new MetabolicScreening();
+    this.editing = this.screening !== undefined;
+    this.screening = new MetabolicScreening(this.screening);
+    console.log(this.screening);
     this.setUpForm();
 
     // hide the see more floating button when the table has scrolled all of the way
@@ -216,11 +218,17 @@ export class AddEditScreeningModalPage implements OnInit {
       }
     });
 
-    // save back to the database
-    await this.screeningsService.addScreening(toSave);
+    // edit an existing record
+    if (this.editing) {
+      await this.screeningsService.updateScreening(this.screening.id, _.omit(toSave, ['setOrDefault']));
+    }
+    // add a new screening
+    else {
+      await this.screeningsService.addScreening(_.omit(toSave, ['setOrDefault']));
+    }
   }
 
-  setValuesFromForm(topLevelKey: string, attributeKey: string, formControl: AbstractControl): Attribute|null {
+  setValuesFromForm(topLevelKey: string, attributeKey: string, formControl: AbstractControl): any {
     const topLevelAttribute: Attribute = this.screening[topLevelKey];
     const topLevelMethod: AbstractControl = this.mbsForm.get(topLevelKey + 'Method');
     
@@ -237,7 +245,12 @@ export class AddEditScreeningModalPage implements OnInit {
     // or undefined, get the date and method from the top 
     // level attribute in this group and its own form control
     // value so we can save it
-    else if (!formControl.pristine && !_.isNil(formControl.value)) {
+    // TODO: we will need something like:
+    //
+    //  !formControl.pristine && 
+    //
+    // when saving to Kalamata db to not save existing data
+    else if (!_.isNil(formControl.value)) {
       this.screening[attributeKey].date = topLevelAttribute.date;
       this.screening[attributeKey].value = formControl.value;
 
@@ -254,12 +267,14 @@ export class AddEditScreeningModalPage implements OnInit {
       return null;
     }
 
+    // convert the data back to a standard JavaScript object
+    // so that Firestore will allow us to save the data
     return Object.assign({}, this.screening[attributeKey]);
   }
 
   async saveAndDismiss() {
-    await this.save();
     this.modalCtrl.dismiss();
+    this.save();
   }
 
   async saveAndEnterAnother() {
@@ -273,5 +288,10 @@ export class AddEditScreeningModalPage implements OnInit {
     this.screening = new MetabolicScreening();
     this.setUpForm();
     this.table.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  async delete() {
+    this.modalCtrl.dismiss();
+    this.screeningsService.deleteScreening(this.screening.id);
   }
 }

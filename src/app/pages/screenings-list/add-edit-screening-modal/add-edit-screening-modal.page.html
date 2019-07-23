@@ -333,15 +333,18 @@
 <!-- footer buttons -->
 <ion-footer class="relias-modal-footer">
   <div class="left-buttons">
-    <button rui-button-secondary (click)="saveAndEnterAnother()" [disabled]="mbsForm.pristine || mbsForm.invalid">
+    <button rui-button-secondary (click)="saveAndEnterAnother()" [disabled]="mbsForm.invalid" *ngIf="!editing">
       Save and Enter Another
+    </button>
+    <button rui-button-secondary (click)="delete()" *ngIf="editing">
+      Delete
     </button>
   </div>
   <div class="right-buttons">
     <button rui-button-secondary (click)="closeModal()">
       Cancel
     </button>
-    <button rui-button-primary (click)="saveAndDismiss()" [disabled]="mbsForm.pristine || mbsForm.invalid">
+    <button rui-button-primary (click)="saveAndDismiss()" [disabled]="mbsForm.invalid">
       Save
     </button>
   </div>
