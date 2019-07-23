@@ -117,8 +117,9 @@ input {
   // invalid inputs should appear red so long as they're not currently in focus
   // we want to allow time for the user to set the input before showing red
   &.ng-invalid:not(:focus) {
-    background: $control-error-background;
-    border-color: $control-error-border;
+    background: $error-background;
+    border-color: $error-border;
+    color: $error-color;
   }
 }
 

@@ -9,6 +9,7 @@ import { IconComponent } from './icon/icon.component';
 import { FilterBarComponent } from './filter-bar/filter-bar.component';
 import { SearchbarComponent } from './searchbar/searchbar.component';
 import { FormsModule } from '@angular/forms';
+import { NotificationComponent } from './notification/notification.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     BackButtonComponent,
     IconComponent,
     FilterBarComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    NotificationComponent
   ],
   imports: [
     IonicModule,
@@ -31,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     BackButtonComponent,
     IconComponent,
     FilterBarComponent,
-    SearchbarComponent
+    SearchbarComponent,
+    NotificationComponent
   ]
 })
 export class ComponentsModule { }

@@ -16,7 +16,7 @@
       <h1>Buttons</h1>
       
       <!-- relias button -->
-      <h4>.relias-button</h4>
+      <h4>Button (from Relias UI)</h4>
 
       <button rui-button-primary>
         Primary Button
@@ -28,10 +28,6 @@
 
       <button rui-button-tertiary>
         Tertiary Button
-      </button>
-      
-      <button class="relias-button icon-only">
-        <relias-icon [name]="Icons.navClose"></relias-icon>
       </button>
 
       <!-- relias button as filter -->
@@ -55,6 +51,17 @@
       <h4>&lt;relias-searchbar&gt;&lt;/relias-searchbar&gt;</h4>
       <div class="searchbar-container">
         <relias-searchbar></relias-searchbar>
+      </div>
+
+      <h4>&lt;relias-notification&gt;&lt;/relias-notification&gt;</h4>
+      <div class="notification-container">
+        <relias-notification message="This is an error notification banner." icon="error"></relias-notification>
+      </div>
+      <div class="notification-container">
+        <relias-notification message="This is a general notification banner." icon="general"></relias-notification>
+      </div>
+      <div class="notification-container">
+        <relias-notification message="This is a success notification banner." icon="success"></relias-notification>
       </div>
 
       <h1>Icons</h1>

@@ -1,0 +1,37 @@
+@import '../../styles/colors';
+
+.relias-notification {
+  position: relative;
+  padding: 8px 24px 8px 41px;
+
+  font-size: 14px; 
+  letter-spacing: 0.17px; 
+  line-height: 21px; 
+  font-family: Arial; 
+  font-weight: 400; 
+  text-align: left; 
+
+  border-radius: 4px;
+
+  relias-icon {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+  }
+
+  &.error {
+    background: $error-background;
+    border: 1px solid $error-border;
+    color: $error-color;
+  }
+  &.general {
+    background: $general-background;
+    border: 1px solid $general-border;
+    color: $general-color;
+  }
+  &.success {
+    background: $success-background;
+    border: 1px solid $success-border;
+    color: $success-color;
+  }
+}
