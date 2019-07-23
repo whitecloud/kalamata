@@ -38,7 +38,6 @@ export class AddEditScreeningModalPage implements OnInit {
       this.table = document.getElementById('edit-screening');
       this.table.onscroll = () => {
         const buffer = 20; // we can say we're at the bottom within 20 pixels
-        console.log(this.table.scrollTop, this.table.scrollHeight - this.table.clientHeight - buffer)
         this.tableAtBottom = this.table.scrollTop >= this.table.scrollHeight - this.table.clientHeight - buffer;
       }
     });
