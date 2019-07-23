@@ -1,19 +1,15 @@
-import { AttributeMethod } from './attribute-method.model';
-
 export class Attribute {
-  key: number;
   value: any;
   date: Date; // unix timestamp?
   method?: string;
   optOut: boolean;
   comment?: string;
 
-  constructor(date: Date) {
-    this.key = 0;
-    this.value = undefined;
+  constructor(date: Date, method: string = null) {
+    this.value = null;
     this.date = date;
-    this.method = undefined;
+    this.method = method;
     this.optOut = false;
-    this.comment = undefined;
+    this.comment = null;
   }
 }

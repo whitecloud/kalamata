@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Icons } from 'src/app/components/icon/icons.enum';
-import { ModalController, AlertController } from '@ionic/angular';
+import { ModalController, AlertController, ToastController } from '@ionic/angular';
 import { MetabolicScreening } from 'src/app/models/metabolic-screening.model';
 import { Attribute } from 'src/app/models/attribute.model';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'relias-add-edit-screening-modal',
@@ -24,7 +25,8 @@ export class AddEditScreeningModalPage implements OnInit {
 
   constructor(
     private modalCtrl: ModalController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private toastCtrl: ToastController
   ) { }
 
   ngOnInit() {
@@ -35,7 +37,9 @@ export class AddEditScreeningModalPage implements OnInit {
     setTimeout(() => {
       this.table = document.getElementById('edit-screening');
       this.table.onscroll = () => {
-        this.tableAtBottom = this.table.scrollTop >= this.table.clientHeight;
+        const buffer = 20; // we can say we're at the bottom within 20 pixels
+        console.log(this.table.scrollTop, this.table.scrollHeight - this.table.clientHeight - buffer)
+        this.tableAtBottom = this.table.scrollTop >= this.table.scrollHeight - this.table.clientHeight - buffer;
       }
     });
   }
@@ -154,14 +158,115 @@ export class AddEditScreeningModalPage implements OnInit {
     alert.present();
   }
 
-  save() {
-    console.log(this.screening, this.mbsForm);
+  async save() {
+    const toSave = new MetabolicScreening();
+
     Object.entries(this.mbsForm.controls).forEach(r => {
-      console.log(r);
+      const attributeKey = r[0];
+      const formControl = r[1];
+
+      switch(attributeKey) {
+        case 'weight':
+        case 'waist':
+        case 'height':
+          toSave[attributeKey] = this.setValuesFromForm('height', attributeKey, formControl)
+          break;
+        case 'bpDiastolic':
+        case 'bpSystolic':
+          toSave[attributeKey] = this.setValuesFromForm('bpSystolic', attributeKey, formControl)
+          break;
+        case 'ldl':
+        case 'hdl':
+        case 'triglycerides':
+        case 'totalCholesterol':
+          toSave[attributeKey] = this.setValuesFromForm('totalCholesterol', attributeKey, formControl)
+          break;
+        case 'riskLeadExposure':
+        case 'bloodLeadLevel':
+          toSave[attributeKey] = this.setValuesFromForm('bloodLeadLevel', attributeKey, formControl)
+          break;
+        case 'bloodGlucose':
+          toSave[attributeKey] = this.setValuesFromForm('bloodGlucose', attributeKey, formControl)
+          break;
+        case 'hba1c':
+          toSave[attributeKey] = this.setValuesFromForm('hba1c', attributeKey, formControl)
+          break;
+        case 'bloodOxygen':
+          toSave[attributeKey] = this.setValuesFromForm('bloodOxygen', attributeKey, formControl)
+          break;
+        case 'pregnant':
+          toSave[attributeKey] = this.setValuesFromForm('pregnant', attributeKey, formControl)
+          break;
+        case 'tobaccoUse':
+          toSave[attributeKey] = this.setValuesFromForm('tobaccoUse', attributeKey, formControl)
+          break;
+        case 'tobaccoUseComment':
+          // assign the tobacco use comment here if need be
+          if (toSave.tobaccoUse && formControl.value) {
+            toSave.tobaccoUse.comment = formControl.value;
+          }
+          break;
+        default:
+          // there are some keys like the methods that we do nothing with
+          break;
+      }
     });
+
+    console.log('TODO: SAVE THE THING:', toSave);
   }
 
-  saveAndEnterAnother() {
+  setValuesFromForm(topLevelKey: string, attributeKey: string, formControl: AbstractControl): Attribute|null {
+    const topLevelAttribute: Attribute = this.screening[topLevelKey];
+    const topLevelMethod: AbstractControl = this.mbsForm.get(topLevelKey + 'Method');
+    
+    // if this group of form controls is is opted out, 
+    // delete the unnecessary data and set optOut to true
+    if (topLevelAttribute.optOut) {
+      this.screening[attributeKey].optOut = true;
+      this.screening[attributeKey].method = null;
+      this.screening[attributeKey].comment = null;
+      this.screening[attributeKey].value = null;
+      this.screening[attributeKey].date = topLevelAttribute.date;
+    }
+    // if this form control has been touched and isn't null
+    // or undefined, get the date and method from the top 
+    // level attribute in this group and its own form control
+    // value so we can save it
+    else if (!formControl.pristine && !_.isNil(formControl.value)) {
+      this.screening[attributeKey].date = topLevelAttribute.date;
+      this.screening[attributeKey].value = formControl.value;
 
+      // most of the groups have a method select form control
+      // but some such as Tobacco Use and Pregnant do not
+      if (topLevelMethod) {
+        this.screening[attributeKey].method = topLevelMethod.value;
+      }
+    }
+    // if we got to this point, there's nothing about this 
+    // attribute that we need to save, so simply discard it 
+    // from the screening object
+    else {
+      return null;
+    }
+
+    return this.screening[attributeKey];
+  }
+
+  async saveAndDismiss() {
+    await this.save();
+    this.modalCtrl.dismiss();
+  }
+
+  async saveAndEnterAnother() {
+    await this.save();
+    const toast = await this.toastCtrl.create({
+      message: 'Metabolic Screening Data saved for ' + this.screening.memberName,
+      cssClass: 'notification success',
+      duration: 5000
+    });
+    toast.present();
+    this.screening = new MetabolicScreening();
+    this.setUpForm();
+    this.table.scrollTo({top: 0, behavior: 'smooth'});
   }
 }

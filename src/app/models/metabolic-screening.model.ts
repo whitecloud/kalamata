@@ -32,21 +32,24 @@ export class MetabolicScreening {
     const now = new Date;
 
     this.memberId = 1;
+    this.memberName = 'Aztecan, Ishwar'
     this.defaultDate = now;
-    this.height = new Attribute(now);
+    this.lastModifiedBy = 'Taylor, Matt (Relias)'
+
+    this.height = new Attribute(now, 'Actual');
     this.weight = new Attribute(now);
     this.waist = new Attribute(now);
-    this.bpSystolic = new Attribute(now);
+    this.bpSystolic = new Attribute(now, 'Automated');
     this.bpDiastolic = new Attribute(now);
-    this.totalCholesterol = new Attribute(now);
+    this.totalCholesterol = new Attribute(now, 'Fasting');
     this.ldl = new Attribute(now);
     this.hdl = new Attribute(now);
     this.triglycerides = new Attribute(now);
-    this.bloodLeadLevel = new Attribute(now);
+    this.bloodLeadLevel = new Attribute(now, 'Actual');
     this.riskLeadExposure = new Attribute(now);
-    this.bloodGlucose = new Attribute(now);
-    this.hba1c = new Attribute(now);
-    this.bloodOxygen = new Attribute(now);
+    this.bloodGlucose = new Attribute(now, 'Actual');
+    this.hba1c = new Attribute(now, 'Actual');
+    this.bloodOxygen = new Attribute(now, 'Automated');
     this.pregnant = new Attribute(now);
     this.tobaccoUse = new Attribute(now);
   }

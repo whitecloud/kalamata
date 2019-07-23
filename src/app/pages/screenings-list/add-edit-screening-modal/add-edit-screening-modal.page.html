@@ -8,6 +8,7 @@
 
 <!-- content -->
 <ion-content>
+
   <form novalidate [formGroup]="mbsForm" class="relias-modal-content" *ngIf="screening">
     
     <div class="member-and-date-container">
@@ -27,8 +28,8 @@
     </div>
 
     <div class="table-see-more" [ngClass]="{'hidden': tableAtBottom}" (click)="showMore()">
-        <relias-icon [name]="Icons.leftNavExpand"></relias-icon>
-        More Fields
+      <relias-icon [name]="Icons.leftNavExpand"></relias-icon>
+      More Fields
     </div>
 
     <table id="edit-screening" class="relias-table no-column-borders no-alternating-row-shading">
@@ -340,7 +341,7 @@
     <button rui-button-secondary (click)="closeModal()">
       Cancel
     </button>
-    <button rui-button-primary (click)="save()" [disabled]="mbsForm.pristine || mbsForm.invalid">
+    <button rui-button-primary (click)="saveAndDismiss()" [disabled]="mbsForm.pristine || mbsForm.invalid">
       Save
     </button>
   </div>

@@ -27,7 +27,7 @@ export class ScreeningsListPage implements OnInit {
   async openModal() {
     const modal = await this.modalCtrl.create({
       component: AddEditScreeningModalPage,
-      cssClass: 'width-700'
+      cssClass: 'mbs-modal'
     });
     await modal.present();
   }

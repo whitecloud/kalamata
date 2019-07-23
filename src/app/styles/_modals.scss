@@ -82,8 +82,10 @@ ion-modal {
     }
   }
 
-  // allow custom modal widths
-  &.width-700 .modal-wrapper {
+  // metabolic screening modal sizing
+  &.mbs-modal .modal-wrapper {
     --width: 700px;
+    --height: 75vh;
+    --max-height: 950px;
   }
 }
