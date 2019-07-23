@@ -4,7 +4,8 @@
     "no-unused-variable": [
       true
     ]
-  },
+  }
+  // ,
   // "extends": "tslint:recommended",
   // "rulesDirectory": [
   //   "codelyzer"
