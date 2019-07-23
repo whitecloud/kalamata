@@ -39,6 +39,15 @@ ion-menu.left-nav-menu ion-content {
   }
 }
 
+// shared loading container for an ion-spinner
+.loading-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
 //// OVERRIDES ////
 
 *[padding] {

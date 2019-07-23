@@ -28,6 +28,10 @@ export class MetabolicScreening {
   pregnant: Attribute;
   tobaccoUse: Attribute;
 
+  // firebase client only fields
+  id?: string;
+  exists?: boolean;
+
   constructor() {
     const now = new Date;
 

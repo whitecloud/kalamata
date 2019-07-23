@@ -23,7 +23,7 @@
 
       <!-- screenings list table -->
       <div class="table-container">
-        <table class="relias-table">
+        <table class="relias-table" *ngIf="$screenings | async as screenings; else loading">
           <thead>
             <th>Member ID</th>
             <th>Name</th>
@@ -36,25 +36,55 @@
             <th>BP<br>Systolic</th>
             <th>BP<br>Diastolic</th>
             <th>Total<br>Cholest</th>
+            <th>LDL</th>
+            <th>HDL</th>
+            <th>Triglycerides</th>
+            <th>Blood Lead<br>Level</th>
+            <th>Risk of Lead<br>Exposure</th>
+            <th>Blood<br>Glucose</th>
+            <th>HbA1c</th>
+            <th>Blood<br>Oxygen</th>
+            <th>Pregnant</th>
+            <th>Tobacco<br>Use</th>
           </thead>
           <tbody>
-            <tr>
-              <td>10338</td>
-              <td>Aztecan, Ishwar</td>
-              <td>2/23/2019</td>
-              <td>Smith, Mary</td>
-              <td>72.0</td>
-              <td>215</td>
-              <td>29.2</td>
-              <td>-</td>
-              <td>125</td>
-              <td>85</td>
-              <td>-</td>
+            <tr *ngFor="let screening of screenings">
+              <td>{{ screening.memberId }}</td>
+              <td>{{ screening.memberName }}</td>
+              <td>{{ screening.defaultDate | date:shortDate }}</td>
+              <td>{{ screening.lastModifiedBy }}</td>
+              <td>{{ screening.height ? screening.height.value : '-' }}</td>
+              <td>{{ screening.weight ? screening.weight.value : '-' }}</td>
+              <td>
+                <span *ngIf="screening.weight && screening.height">
+                  {{ (screening.weight.value | bmi:screening.height.value) || '-' }}
+                </span>
+                <span *ngIf="!screening.weight || !screening.height">-</span>
+              </td>
+              <td>{{ screening.waist ? screening.waist.value : '-' }}</td>
+              <td>{{ screening.bpSystolic ? screening.bpSystolic.value : '-' }}</td>
+              <td>{{ screening.bpDiastolic ? screening.bpDiastolic.value : '-' }}</td>
+              <td>{{ screening.totalCholesterol ? screening.totalCholesterol.value : '-' }}</td>
+              <td>{{ screening.ldl ? screening.ldl.value : '-' }}</td>
+              <td>{{ screening.hdl ? screening.hdl.value : '-' }}</td>
+              <td>{{ screening.triglycerides ? screening.triglycerides.value : '-' }}</td>
+              <td>{{ screening.bloodLeadLevel ? screening.bloodLeadLevel.value : '-' }}</td>
+              <td>{{ screening.riskLeadExposure ? screening.riskLeadExposure.value : '-' }}</td>
+              <td>{{ screening.bloodGlucose ? screening.bloodGlucose.value : '-' }}</td>
+              <td>{{ screening.hba1c ? screening.hba1c.value : '-' }}</td>
+              <td>{{ screening.bloodOxygen ? screening.bloodOxygen.value : '-' }}</td>
+              <td>{{ screening.pregnant ? screening.pregnant.value : '-' }}</td>
+              <td>{{ screening.tobaccoUse ? screening.tobaccoUse.value : '-' }}</td>
             </tr>
           </tbody>
         </table>
       </div>
 
+      <ng-template #loading>
+        <div class="loading-container">
+          <ion-spinner></ion-spinner>
+        </div>
+      </ng-template>
     </div>
   </div>
 </ion-content>

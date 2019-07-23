@@ -5,6 +5,7 @@ import { MetabolicScreening } from 'src/app/models/metabolic-screening.model';
 import { Attribute } from 'src/app/models/attribute.model';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import * as _ from 'lodash';
+import { ScreeningsService } from 'src/app/services/screenings.service';
 
 @Component({
   selector: 'relias-add-edit-screening-modal',
@@ -26,7 +27,8 @@ export class AddEditScreeningModalPage implements OnInit {
   constructor(
     private modalCtrl: ModalController,
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    private screeningsService: ScreeningsService
   ) { }
 
   ngOnInit() {
@@ -160,6 +162,9 @@ export class AddEditScreeningModalPage implements OnInit {
   async save() {
     const toSave = new MetabolicScreening();
 
+    toSave.defaultDate = this.screening.defaultDate;
+    // TODO: set member information and lastModifiedBy information
+
     Object.entries(this.mbsForm.controls).forEach(r => {
       const attributeKey = r[0];
       const formControl = r[1];
@@ -211,7 +216,8 @@ export class AddEditScreeningModalPage implements OnInit {
       }
     });
 
-    console.log('TODO: SAVE THE THING:', toSave);
+    // save back to the database
+    await this.screeningsService.addScreening(toSave);
   }
 
   setValuesFromForm(topLevelKey: string, attributeKey: string, formControl: AbstractControl): Attribute|null {
@@ -248,7 +254,7 @@ export class AddEditScreeningModalPage implements OnInit {
       return null;
     }
 
-    return this.screening[attributeKey];
+    return Object.assign({}, this.screening[attributeKey]);
   }
 
   async saveAndDismiss() {
